@@ -1574,14 +1574,18 @@ class CertificateGen(object):
 
         # Credits statement
         style.fontSize = 18
-        if gets_md_cert:
-            paragraph_string = "and is awarded 23.5 " \
-                "<i>AMA PRA Category 1 Credits(s)</i>" \
-                "<super><font size=13>TM.</font></super>"
-        else:
-            paragraph_string = "The activity was designated for 23.5 " \
-                "<i>AMA PRA Category 1 Credits(s)</i>" \
-                "<super><font size=13>TM.</font></super>"
+        credit_info = self.cert_data.get('CREDITS', {})
+        credit_count = credit_info.get('COUNT', 0.00)
+        credit_type = credit_info.get('TYPE', '')
+        if credit_type:
+            if gets_md_cert:
+                paragraph_string = u"and is awarded {ccount} {ctype}".format(
+                    ccount=credit_count, ctype=credit_type.decode('utf-8')
+                )
+            else:
+                paragraph_string = u"The activity was designated for {ccount} {ctype}".format(
+                    ccount=credit_count, ctype=credit_type.decode('utf-8')
+                )
         draw_centered_text(paragraph_string, style, 80)
 
         # MD/DO vs AHP tags

@@ -5,6 +5,7 @@ import sys
 import os
 import time
 import settings
+import traceback
 from openedx_certificates.queue_xqueue import XQueuePullManager
 from gen_cert import CertificateGen
 
@@ -98,7 +99,7 @@ def main():
                     template_pdf,
                     aws_id=args.aws_id,
                     aws_key=args.aws_key,
-                    long_course=course_name,
+                    # long_course=course_name,
                     issued_date=issued_date,
                 )
                 last_course = course_id
@@ -127,8 +128,11 @@ def main():
             )
             (download_uuid,
              verify_uuid,
-             download_url) = cert.create_and_upload(name.encode('utf-8'), grade=grade, designation=designation)
+             download_url) = cert.create_and_upload(name.encode('utf-8') , grade=grade, designation=designation)
+            # cert.create_and_upload(name.encode('utf-8') , grade=grade, designation=designation)
 
+        #try:
+        #    pass
         except Exception as e:
             # global exception handler, if anything goes wrong
             # during the generation of the pdf we will let the LMS
@@ -149,9 +153,11 @@ def main():
                     exception_type=exc_type,
                     exception=e,
                     file_name=fname,
-                    line_number=exc_tb.tb_lineno,
+                    line_number=exc_tb.tb_lineno
                 )
             )
+
+            log.critical(traceback.format_exc())
 
             log.critical(
                 'An error occurred during certificate generation {reason}'.format(

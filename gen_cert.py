@@ -223,7 +223,9 @@ class CertificateGen(object):
         # lookup long names from the course_id
         try:
             self.long_org = long_org or cert_data.get('LONG_ORG', '').encode('utf-8') or settings.DEFAULT_ORG
+            # log.critical("long_course before: {0}".format(long_course.decode('utf-8')))
             self.long_course = long_course or cert_data.get('LONG_COURSE', '').encode('utf-8')
+            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
             self.issued_date = issued_date or cert_data.get('ISSUED_DATE', '').encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())
             self.interstitial_texts.update(cert_data.get('interstitial', {}))
@@ -254,6 +256,7 @@ class CertificateGen(object):
                 self.template_type = 'verified'
         try:
             self.template_pdf = PdfFileReader(file(template_pdf_filename, "rb"))
+            log.info("Use certificate template pdf: {0}".format(template_pdf_filename))
         except IOError as e:
             log.critical("I/O error ({0}): {1} opening {2}".format(e.errno, e.strerror, template_pdf_filename))
             raise
@@ -567,8 +570,10 @@ class CertificateGen(object):
             0, 0.624, 0.886)
         styleOpenSans.alignment = TA_LEFT
 
-        paragraph_string = "<b><i>{0}: {1}</i></b>".format(
-            self.course, self.long_course.decode('utf-8'))
+        #paragraph_string = "<b><i>{0}: {1}</i></b>".format(
+        #    self.course, self.long_course.decode('utf-8'))
+        paragraph_string = "<b><i>{0}</i></b>".format(
+            self.course)
         paragraph = Paragraph(paragraph_string, styleOpenSans)
         # paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         if 'PH207x' in self.course:

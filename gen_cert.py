@@ -723,13 +723,13 @@ class CertificateGen(object):
         # Right justified so we compute the width
         width = stringWidth(
             paragraph_string,
-            'OpenSans-Light',
+            'OpenSans-Bold',
             19,
         ) / mm
-        paragraph = Paragraph("{0}".format(
+        paragraph = Paragraph("<b>{0}</b>".format(
             paragraph_string), styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 163 * mm)
+        paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 171 * mm)
 
         # Issued ..
 
@@ -749,7 +749,7 @@ class CertificateGen(object):
         paragraph = Paragraph("<i>{0}</i>".format(
             paragraph_string), styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 155 * mm)
+        paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 163 * mm)
 
         # This is to certify..
 

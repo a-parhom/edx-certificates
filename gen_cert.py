@@ -715,10 +715,10 @@ class CertificateGen(object):
 
         styleOpenSansLight.fontSize = 19
         styleOpenSansLight.leading = 10
-        styleOpenSansLight.textColor = colors.Color(0.302, 0.306, 0.318)
+        styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "CERTIFICATE"
+        paragraph_string = "СЕРТИФІКАТ"
 
         # Right justified so we compute the width
         width = stringWidth(
@@ -735,11 +735,10 @@ class CertificateGen(object):
 
         styleOpenSansLight.fontSize = 12
         styleOpenSansLight.leading = 10
-        styleOpenSansLight.textColor = colors.Color(
-            0.302, 0.306, 0.318)
+        styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "Issued {0}".format(self.issued_date)
+        paragraph_string = "Видано {0}".format(self.issued_date)
 
         # Right justified so we compute the width
         width = stringWidth(

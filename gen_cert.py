@@ -886,7 +886,7 @@ class CertificateGen(object):
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
         
-        paragraph_string = "<b>{2}</b> через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
+        paragraph_string = "<b>{0}</b> через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
                                self.teacher)
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)

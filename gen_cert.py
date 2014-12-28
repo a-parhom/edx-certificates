@@ -886,7 +886,7 @@ class CertificateGen(object):
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
         
-        paragraph_string = "<b>{0}</b> через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
+        paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн курсів <b>Prometheus</b>.".format(
                                self.teacher)
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
@@ -898,11 +898,15 @@ class CertificateGen(object):
         styleOpenSansLight.fontSize = 7
         styleOpenSansLight.leading = 10
         styleOpenSansLight.textColor = colors.Color(
-            0.302, 0.306, 0.318)
+            0.808, 0.875, 0.929)
         styleOpenSansLight.alignment = TA_CENTER
 
-        paragraph_string = "HONOR CODE CERTIFICATE<br/>" \
-            "*Authenticity of this certificate can be verified at " \
+#        paragraph_string = "HONOR CODE CERTIFICATE<br/>" \
+#            "*Authenticity of this certificate can be verified at " \
+#            "<a href='{verify_url}/{verify_path}/{verify_uuid}'>" \
+#            "{verify_url}/{verify_path}/{verify_uuid}</a>"
+
+        paragraph_string = "Автентичність цього сертифікату може бути перевірена за " \
             "<a href='{verify_url}/{verify_path}/{verify_uuid}'>" \
             "{verify_url}/{verify_path}/{verify_uuid}</a>"
 

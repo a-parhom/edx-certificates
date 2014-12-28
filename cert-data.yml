@@ -14,6 +14,8 @@ edX/DemoX_v3/Demo_Course_v3:
 
 KPI/Algo101/2014_Fall:
   ISSUED_DATE: Jan. 1st, 1970
-  LONG_COURSE: 'Algorithms'
-  LONG_ORG: 'Kyiv Polytechnic Institute'
+  LONG_COURSE: 'Розробка та аналіз алгоритмів'
+  LONG_ORG: 'Київський Політехнічний Інститут'
+  ORG: 'НТУУ "КПІ"'
+  TEACHER: 'Олексієм Молчановським'
   VERSION: Prometheus

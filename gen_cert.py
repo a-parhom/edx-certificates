@@ -814,7 +814,7 @@ class CertificateGen(object):
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
 
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 116 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
 
         # Course name
 
@@ -863,7 +863,7 @@ class CertificateGen(object):
 #            paragraph.drawOn(c, LEFT_INDENT * mm, 99 * mm)
             
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 105 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 101 * mm)
 
         # A course of study..
 
@@ -881,7 +881,7 @@ class CertificateGen(object):
 #        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
 #                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
 #                               teacher_str, self.org, self.teacher)
-        paragraph_string = "який наданий {0} <b>{1}</b> <br />".format(teacher_str, self.org)
+        paragraph_string = "який наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
@@ -891,7 +891,7 @@ class CertificateGen(object):
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 66 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
 
         # Honor code
 

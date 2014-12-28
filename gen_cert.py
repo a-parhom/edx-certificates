@@ -227,7 +227,7 @@ class CertificateGen(object):
             # log.critical("long_course before: {0}".format(long_course.decode('utf-8')))
             self.long_course = long_course or cert_data.get('LONG_COURSE', '').encode('utf-8')
             self.teacher = teacher or cert_data.get('TEACHER', '').encode('utf-8')
-            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
+#            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
             self.issued_date = issued_date or cert_data.get('ISSUED_DATE', '').encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())
             self.interstitial_texts.update(cert_data.get('interstitial', {}))
@@ -765,7 +765,7 @@ class CertificateGen(object):
         paragraph_string = "Цей сертифікат засвідчує, що"        
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 132.5 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 134.5 * mm)
 
         #  Student name
 
@@ -787,10 +787,10 @@ class CertificateGen(object):
         # decrease the font size
         if width > 153:
             style.fontSize = 18
-            nameYOffset = 121.5
+            nameYOffset = 124.5
         else:
             style.fontSize = 34
-            nameYOffset = 124.5
+            nameYOffset = 128.5
 
         styleOpenSans.textColor = colors.Color(
             0, 0.658, 0.690)
@@ -814,7 +814,7 @@ class CertificateGen(object):
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
 
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 108 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 116 * mm)
 
         # Course name
 
@@ -863,7 +863,7 @@ class CertificateGen(object):
 #            paragraph.drawOn(c, LEFT_INDENT * mm, 99 * mm)
             
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 99 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 105 * mm)
 
         # A course of study..
 
@@ -878,13 +878,20 @@ class CertificateGen(object):
 #                           ", an online learning<br /><br />initiative of " \
 #                           "<b>{1}</b> through <b>edX</b>.".format(
 #                               self.org, self.long_org.decode('utf-8'))
-        paragraph_string = "який наданий {0} <b>{1}</b> <b>{2}</b><br />" \
-                                "за допомогою системи масових відкритих онлайн курсів Prometheus.".format(
-                               teacher_str, self.org, self.teacher)
+#        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
+#                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
+#                               teacher_str, self.org, self.teacher)
+        paragraph_string = "який наданий {0} <b>{1}</b> <br />".format(teacher_str, self.org)
+        paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
+        
+        paragraph_string = "<b>{2}</b> через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
+                               self.teacher)
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 78 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, 66 * mm)
 
         # Honor code
 

@@ -895,7 +895,7 @@ class CertificateGen(object):
 
         # Honor code
 
-        styleOpenSansLight.fontSize = 7
+        styleOpenSansLight.fontSize = 9
         styleOpenSansLight.leading = 10
         styleOpenSansLight.textColor = colors.Color(
             0.808, 0.875, 0.929)
@@ -917,7 +917,7 @@ class CertificateGen(object):
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
 
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, 0 * mm, 28 * mm)
+        paragraph.drawOn(c, 0 * mm, 32 * mm)
 
         c.showPage()
         c.save()

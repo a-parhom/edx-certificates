@@ -1478,6 +1478,7 @@ class CertificateGen(object):
             CERTS_ARE_CALLED=CERTS_ARE_CALLED.title(),
             CERTS_ARE_CALLED_PLURAL=CERTS_ARE_CALLED_PLURAL.title(),
             EXPLANATION=type_map[self.template_type]['explanation'],
+            TEACHER=self.teacher.decode('utf-8'),
         )
 
         with open(os.path.join(

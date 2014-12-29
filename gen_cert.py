@@ -9,6 +9,7 @@ import re
 import shutil
 import StringIO
 import uuid
+from datetime import date
 
 from reportlab.platypus import Paragraph
 from PyPDF2 import PdfFileWriter, PdfFileReader
@@ -228,7 +229,7 @@ class CertificateGen(object):
             self.long_course = long_course or cert_data.get('LONG_COURSE', '').encode('utf-8')
             self.teacher = teacher or cert_data.get('TEACHER', '').encode('utf-8')
 #            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
-            self.issued_date = issued_date or cert_data.get('ISSUED_DATE', '').encode('utf-8') or 'ROLLING'
+            self.issued_date = issued_date or cert_data.get('ISSUED_DATE', date.today().strftime("%d.%m.%Y")).encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())
             self.interstitial_texts.update(cert_data.get('interstitial', {}))
         except KeyError:
@@ -740,7 +741,7 @@ class CertificateGen(object):
         styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
         styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "Видано {0}".format(self.issued_date)
+        paragraph_string = "Виданий {0}".format(self.issued_date)
 
         # Right justified so we compute the width
         width = stringWidth(

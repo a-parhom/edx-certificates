@@ -13,7 +13,7 @@ edX/DemoX_v3/Demo_Course_v3:
     Distinction: 'This person is a complete overachiever!'
 
 KPI/Algo101/2014_Fall:
-  ISSUED_DATE: Jan. 1st, 1970
+#  ISSUED_DATE: Jan. 1st, 1970
 #  LONG_COURSE: 'Розробка та аналіз алгоритмів'
 #  LONG_ORG: 'Київського Політехнічного Інституту'
 #  ORG: 'НТУУ "КПІ"'

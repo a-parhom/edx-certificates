@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <title>Valid {CERTS_ARE_CALLED} Number</title>
+<!-- <title>Valid {CERTS_ARE_CALLED} Number</title>-->
+ <title>Дійсний номер сертифікату</title>
  <link rel="stylesheet" href="/stylesheets/base.css">
 </head>
 <body>
@@ -12,18 +13,19 @@
 
   <section>
     <header class="valid">
-      <h1>This is a valid edX {CERTS_ARE_CALLED} number for <span>{NAME}</span></h1>
+      <!--<h1>This is a valid edX {CERTS_ARE_CALLED} number for <span>{NAME}</span></h1>-->
+      <h1>Це дійсний номер сертифікату від Prometheus для <span>{NAME}</span></h1>
     </header>
 
     <section>
       <dl>
-        <dt>Student Name</dt>
+        <dt>Студент</dt>
         <dd>{NAME}</dd>
-        <dt>Identifier number</dt>
+        <dt>Ідентифікаційний номер в системі Prometheus</dt>
         <dd>{CERTIFICATE_ID}</dd>
-        <dt>Course</dt>
-        <dd>{COURSE}</dd>
-        <dd class="description">A course of study offered by {ORG}, an online learning initiative of {ORG_LONG}, through OpenEdX, the premier open source online learning platform.</dd>
+        <dt>Навчальний курс</dt>
+        <dd>{COURSE_LONG}</dd>
+        <dd class="description">Цей курс наданий викладачем {ORG_LONG} {TEACHER} через платформу масових відкритих онлайн курсів Prometheus.</dd>
       </dl>
     </section>
 
@@ -31,8 +33,8 @@
   <footer>
     <p>{SIGNATURE}
     </p>
-    <a href="{SIG_URL}" class="download">Download this signature</a>
-    <a href="{VERIFY_URL}" class="what">What is this?</a>
+    <a href="{SIG_URL}" class="download">Завантажити цей цифровий підпис</a>
+    <!--<a href="{VERIFY_URL}" class="what">What is this?</a>-->
   </footer>
 </body>
 </html>

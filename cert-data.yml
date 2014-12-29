@@ -25,3 +25,10 @@ KPI/Algo101/2014_Fall:
   ORG: 'kbms'
   TEACHER: 'Олексієм Геращенком'
   VERSION: Prometheus
+
+NAUKMA/101/2014_T2:
+  LONG_COURSE: 'Фінансовий менеджмент'
+  LONG_ORG: 'Києво-Могилянської бізнес-школи'
+  ORG: 'kbms'
+  TEACHER: 'Олексієм Геращенком'
+  VERSION: Prometheus

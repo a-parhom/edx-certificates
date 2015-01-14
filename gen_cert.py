@@ -823,24 +823,6 @@ class CertificateGen(object):
 #        if 'PH207x' in self.course:
 #            styleOpenSans.fontSize = 18
 #            styleOpenSans.leading = 21
-#        elif '4.01x' in self.course:
-#            styleOpenSans.fontSize = 20
-#            styleOpenSans.leading = 10
-#        elif 'Stat2.1x' in self.course:
-#            styleOpenSans.fontSize = 20
-#            styleOpenSans.leading = 10
-#        elif 'CS191x' in self.course:
-#            styleOpenSans.fontSize = 20
-#            styleOpenSans.leading = 10
-#        elif '6.00x' in self.course:
-#            styleOpenSans.fontSize = 20
-#            styleOpenSans.leading = 21
-#        elif 'PH278x' in self.course:
-#            styleOpenSans.fontSize = 20
-#            styleOpenSans.leading = 10
-#        else:
-#            styleOpenSans.fontSize = 24
-#            styleOpenSans.leading = 10
         styleOpenSans.fontSize = 24
         styleOpenSans.leading = 10
         styleOpenSans.textColor = colors.Color(
@@ -849,9 +831,9 @@ class CertificateGen(object):
 
         #paragraph_string = "<b><i>{0}: {1}</i></b>".format(
         #    self.course, self.long_course.decode('utf-8'))
-        paragraph_string = "<b><i>{0}</i>,</b>".format(
-            self.long_course)
-        paragraph = Paragraph(paragraph_string, styleOpenSans)
+        width = stringWidth(self.long_course, 'OpenSans-Regular', 24) / mm
+        paragraph_string = "<b><i>{0}</i>,</b>".format(self.long_course)
+        
         # paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
 #        if 'PH207x' in self.course:
 #            paragraph.wrapOn(c, 180 * mm, HEIGHT * mm)
@@ -862,9 +844,17 @@ class CertificateGen(object):
 #        else:
 #            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
 #            paragraph.drawOn(c, LEFT_INDENT * mm, 99 * mm)
-            
+        
+        if width > 153:
+            style.fontSize = 16
+            nameYOffset = 99
+        else:
+            style.fontSize = 24
+            nameYOffset = 101
+
+        paragraph = Paragraph(paragraph_string, styleOpenSans)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 101 * mm)
+        paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
 
         # A course of study..
 

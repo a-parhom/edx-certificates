@@ -847,7 +847,7 @@ class CertificateGen(object):
         
         if width > 153:
             style.fontSize = 16
-            nameYOffset = 99
+            nameYOffset = 101
         else:
             style.fontSize = 24
             nameYOffset = 101

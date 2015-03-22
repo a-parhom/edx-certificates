@@ -41,8 +41,9 @@ KNU/101/2014_T2:
   VERSION: Prometheus
 
 KPI/Programming101/2015_T1:
-  LONG_COURSE: 'Основи програмування'
+  LONG_COURSE: 'Основи програмування (мовою Python)'
   LONG_ORG: 'Національного Технічного Університету України "КПІ"'
   ORG: 'kpi'
   TEACHER: 'Нікітою Павлюченком'
   VERSION: Prometheus
+

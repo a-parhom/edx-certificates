@@ -53,3 +53,10 @@ NaUKMA/TC101/2015_T1:
   ORG: 'kbms'
   TEACHER: 'Юлією Плієвою'
   VERSION: Prometheus
+
+KPI/Algorithms101/2015_Spring:
+  LONG_COURSE: 'Розробка та аналіз алгоритмів. Частина 1'
+  LONG_ORG: 'Національного Технічного Університету України "КПІ"'
+  ORG: 'kpi'
+  TEACHER: 'Олексієм Молчановським'
+  VERSION: Prometheus

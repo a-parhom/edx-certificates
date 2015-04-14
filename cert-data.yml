@@ -47,3 +47,9 @@ KPI/Programming101/2015_T1:
   TEACHER: 'Нікітою Павлюченком'
   VERSION: Prometheus
 
+NAUKMA/TC101/2015_T1:
+  LONG_COURSE: 'Вступ до Теорії обмежень та Процеси мислення як потужний підхід до управління бізнесом'
+  LONG_ORG: 'Києво-Могилянської бізнес-школи'
+  ORG: 'kbms'
+  TEACHER: 'Юлією Плієвою'
+  VERSION: Prometheus

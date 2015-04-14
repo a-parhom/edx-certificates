@@ -832,29 +832,29 @@ class CertificateGen(object):
         #paragraph_string = "<b><i>{0}: {1}</i></b>".format(
         #    self.course, self.long_course.decode('utf-8'))
         width = stringWidth(self.long_course, 'OpenSans-Regular', 24) / mm
-        paragraph_string = "<b><i>{0}</i>,</b>".format(self.long_course)
+        long_course_list = self.long_course.replace('\\n','\n').splitlines()
         
-        # paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-#        if 'PH207x' in self.course:
-#            paragraph.wrapOn(c, 180 * mm, HEIGHT * mm)
-#            paragraph.drawOn(c, LEFT_INDENT * mm, 91 * mm)
-#        elif '6.00x' in self.course:
-#            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-#            paragraph.drawOn(c, LEFT_INDENT * mm, 95 * mm)
-#        else:
-#            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-#            paragraph.drawOn(c, LEFT_INDENT * mm, 99 * mm)
-        
-        if width > 153:
+        if width > 153 or len(long_course_list)>1:
             style.fontSize = 16
-            nameYOffset = 101
+            if len(long_course_list)>1:
+                nameYOffset = 104
+            else:
+                nameYOffset = 101
         else:
             style.fontSize = 24
             nameYOffset = 101
 
-        paragraph = Paragraph(paragraph_string, styleOpenSans)
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
+        for ii in range(len(long_course_list)):
+            long_course_part = long_course_list[ii]
+            if ii==len(long_course_list)-1:
+                comma = ','
+            else:
+                comma = ''
+            paragraph_string = "<b><i>{0}</i>{1}</b>".format(long_course_part,comma)
+            paragraph = Paragraph(paragraph_string, styleOpenSans)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
+            nameYOffset -= 8
 
         # A course of study..
 

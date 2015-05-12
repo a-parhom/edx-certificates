@@ -60,3 +60,10 @@ KPI/Algorithms101/2015_Spring:
   ORG: 'kpi'
   TEACHER: 'Олексієм Молчановським'
   VERSION: Prometheus
+
+KPI/IS101/2014_T1:
+  LONG_COURSE: 'Основи інформаційної безпеки'
+  LONG_ORG: 'ІСЗЗІ НТУУ "КПІ", технічним директором Zillya! Антивірус'
+  ORG: 'kpi'
+  TEACHER: 'Олегом Сичем'
+  VERSION: Prometheus

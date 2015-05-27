@@ -186,7 +186,7 @@ class CertificateGen(object):
 
     def __init__(self, course_id, template_pdf=None, aws_id=None, aws_key=None,
                  dir_prefix=None, long_org=None, long_course=None, issued_date=None, 
-                 teacher=None):
+                 teacher=None, teacher_title=None):
         """Load a pdf template and initialize
 
         Multiple certificates can be generated and uploaded for a single course.
@@ -228,6 +228,7 @@ class CertificateGen(object):
             # log.critical("long_course before: {0}".format(long_course.decode('utf-8')))
             self.long_course = long_course or cert_data.get('LONG_COURSE', '').encode('utf-8')
             self.teacher = teacher or cert_data.get('TEACHER', '').encode('utf-8')
+            self.teacher_title = teacher_title or cert_data.get('TEACHER_TITLE', '').encode('utf-8')
 #            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
             self.issued_date = issued_date or cert_data.get('ISSUED_DATE', date.today().strftime("%d.%m.%Y")).encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())
@@ -863,7 +864,11 @@ class CertificateGen(object):
             0.118, 0.235, 0.314)
         styleOpenSansLight.alignment = TA_LEFT
         
-        teacher_str = "викладачем"
+#        teacher_str = "викладачем"
+        if self.teacher_title:
+            teacher_str = self.teacher_title
+        else:
+            teacher_str = "викладачем"
 
 #        paragraph_string = "навчальний курс, який наданий <b>{0}</b>" \
 #                           ", an online learning<br /><br />initiative of " \

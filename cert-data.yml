@@ -63,7 +63,23 @@ KPI/Algorithms101/2015_Spring:
 
 KPI/IS101/2014_T1:
   LONG_COURSE: 'Основи інформаційної безпеки'
-  LONG_ORG: 'ІСЗЗІ НТУУ "КПІ", технічним директором Zillya! Антивірус'
+  LONG_ORG: 'Zillya! Антивірус'
   ORG: 'kpi'
+  TEACHER_TITLE: 'технічним директором'
   TEACHER: 'Олегом Сичем'
+  VERSION: Prometheus
+
+Prometheus/CP101/2015_T1:
+  LONG_COURSE: 'Захист прав споживачів: теорія та практика'
+  LONG_ORG: 'юридичної компанії "Spektor Law Firm"'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'засновником'
+  TEACHER: 'Ольгою Спектор'
+  VERSION: Prometheus
+
+NaUKMA/CI101/2014_T1:
+  LONG_COURSE: 'Комунікаційні інструменти для побудови репутації'
+  LONG_ORG: 'Києво-Могилянської академії'
+  ORG: 'naukma'
+  TEACHER: 'Анастасією Нуржинською (Троцькою)'
   VERSION: Prometheus

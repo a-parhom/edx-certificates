@@ -186,7 +186,7 @@ class CertificateGen(object):
 
     def __init__(self, course_id, template_pdf=None, aws_id=None, aws_key=None,
                  dir_prefix=None, long_org=None, long_course=None, issued_date=None, 
-                 teacher=None, teacher_title=None):
+                 teacher=None, teacher_title=None, teacher_first_line=None):
         """Load a pdf template and initialize
 
         Multiple certificates can be generated and uploaded for a single course.
@@ -229,6 +229,7 @@ class CertificateGen(object):
             self.long_course = long_course or cert_data.get('LONG_COURSE', '').encode('utf-8')
             self.teacher = teacher or cert_data.get('TEACHER', '').encode('utf-8')
             self.teacher_title = teacher_title or cert_data.get('TEACHER_TITLE', '').encode('utf-8')
+            self.teacher_first_line = teacher_first_line or cert_data.get('TEACHER_AT_FIRST_LINE', '').encode('utf-8')
 #            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
             self.issued_date = issued_date or cert_data.get('ISSUED_DATE', date.today().strftime("%d.%m.%Y")).encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())
@@ -877,12 +878,18 @@ class CertificateGen(object):
 #        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
 #                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
 #                               teacher_str, self.org, self.teacher)
-        paragraph_string = "наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
+        if self.teacher_first_line:
+            paragraph_string = "наданий {0} <b>{1}</b> <b>{2}</b><br />".format(teacher_str, self.long_org, self.teacher)
+        else:
+            paragraph_string = "наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
         
-        paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(
+        if self.teacher_first_line:
+            paragraph_string = "через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
+        else:
+            paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(
                                self.teacher)
 
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)

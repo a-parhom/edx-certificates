@@ -229,7 +229,7 @@ class CertificateGen(object):
             self.long_course = long_course or cert_data.get('LONG_COURSE', '').encode('utf-8')
             self.teacher = teacher or cert_data.get('TEACHER', '').encode('utf-8')
             self.teacher_title = teacher_title or cert_data.get('TEACHER_TITLE', '').encode('utf-8')
-            self.teacher_first_line = teacher_first_line or cert_data.get('TEACHER_AT_FIRST_LINE', '').encode('utf-8')
+            self.teacher_first_line = teacher_first_line or cert_data.get('TEACHER_AT_FIRST_LINE', '')
 #            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
             self.issued_date = issued_date or cert_data.get('ISSUED_DATE', date.today().strftime("%d.%m.%Y")).encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())

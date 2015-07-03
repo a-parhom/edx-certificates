@@ -90,4 +90,5 @@ LITS/101/2015_T1:
   ORG: 'prometheus'
   TEACHER_TITLE: 'викладачами'
   TEACHER: 'Георгієм Гульовим та Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus

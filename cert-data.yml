@@ -92,3 +92,11 @@ LITS/101/2015_T1:
   TEACHER: 'Георгієм Гульовим та Денисом Сороханом'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+KUBG/Psy101/2014_T1:
+  LONG_COURSE: 'Психологія стресу та способи боротьби з ним'
+  LONG_ORG: 'Київський університет імені Бориса Грінченка'
+  ORG: 'kubg'
+  TEACHER: 'Наталією Стефаненко'
+  VERSION: Prometheus
+

@@ -100,3 +100,9 @@ KUBG/Psy101/2014_T1:
   TEACHER: 'Наталією Стефаненко'
   VERSION: Prometheus
 
+NaUKMA/103/2015_T1:
+  LONG_COURSE: 'Економіка для всіх'
+  LONG_ORG: 'Києво-Могилянської академії'
+  ORG: 'naukma'
+  TEACHER: 'Олексієм Геращенком'
+  VERSION: Prometheus

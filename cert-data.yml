@@ -106,3 +106,12 @@ NaUKMA/103/2015_T1:
   ORG: 'kbms'
   TEACHER: 'Олексієм Геращенком'
   VERSION: Prometheus
+
+LITS/103/2015_T1:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Георгієм Гульовим та Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

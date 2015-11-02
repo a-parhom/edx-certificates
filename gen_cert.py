@@ -815,7 +815,7 @@ class CertificateGen(object):
 
 #        paragraph_string = "successfully completed"
         log.info("{0} {1} {2}".format(self.course, self.org, grade))
-        if self.course=='101' and self.org=='IRF' and grade=="A":
+        if self.course=='101' and self.org=='irf' and grade=="A":
             paragraph_string = "успішно закінчив(ла) <b>Експертний рівень</b> курсу"
         else:
             paragraph_string = "успішно закінчив(ла) курс"

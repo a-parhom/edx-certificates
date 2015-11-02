@@ -904,11 +904,11 @@ class CertificateGen(object):
         
         # Subscription for certain courses
         if self.course=='101' and self.org=='irf':
-            styleOpenSansLight.fontSize = 10
-            paragraph_string = 'Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA).'
+            styleOpenSansLight.fontSize = 9
+            paragraph_string = '<i>Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA)</i>.'
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-            paragraph.drawOn(c, LEFT_INDENT * mm, 70 * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 67 * mm)
 
         # Honor code
 

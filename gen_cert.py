@@ -901,6 +901,14 @@ class CertificateGen(object):
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
+        
+        # Subscription for certain courses
+        if self.course=='101' and self.org=='irf':
+            styleOpenSansLight.fontSize = 10
+            paragraph_string = 'Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br>у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA).'
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 70 * mm)
 
         # Honor code
 

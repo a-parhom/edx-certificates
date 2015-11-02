@@ -127,5 +127,6 @@ IRF/101/2015_T2:
   LONG_COURSE: 'Жінки та чоловіки: гендер для всіх'
   LONG_ORG: 'Києво-Могилянської академії'
   ORG: 'irf'
+  TEACHER_TITLE: 'викладачкою'
   TEACHER: 'Тамарою Марценюк'
   VERSION: Prometheus

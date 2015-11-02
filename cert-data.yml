@@ -36,7 +36,7 @@ NAUKMA/101/2014_T2:
 KNU/101/2014_T2:
   LONG_COURSE: 'Новітня історія України: від початку Другої світової війни до сучасності'
   LONG_ORG: 'Київського національного університету імені Тараса Шевченка'
-  ORG: 'kbms'
+  ORG: 'knu'
   TEACHER: 'Іваном Патриляком'
   VERSION: Prometheus
 
@@ -114,4 +114,11 @@ LITS/103/2015_T4:
   TEACHER_TITLE: 'викладачами'
   TEACHER: 'Георгієм Гульовим та Денисом Сороханом'
   TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus
+
+KNU/102/2015_T2:
+  LONG_COURSE: 'Інформаційні війни'
+  LONG_ORG: 'Київського національного університету імені Тараса Шевченка'
+  ORG: 'knu'
+  TEACHER: 'Миколою Ожеваном'
   VERSION: Prometheus

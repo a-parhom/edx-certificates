@@ -814,6 +814,7 @@ class CertificateGen(object):
         styleOpenSansLight.alignment = TA_LEFT
 
 #        paragraph_string = "successfully completed"
+        log.info("{0} {1} {2}".format(self.course, self.org, grade))
         if self.course=='101' and self.org=='IRF' and grade=="A":
             paragraph_string = "успішно закінчив(ла) <b>Експертний рівень</b> курсу"
         else:

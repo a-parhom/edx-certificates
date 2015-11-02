@@ -122,3 +122,10 @@ KNU/102/2015_T2:
   ORG: 'knu'
   TEACHER: 'Миколою Ожеваном'
   VERSION: Prometheus
+
+IRF/101/2015_T2:
+  LONG_COURSE: 'Жінки та чоловіки: гендер для всіх'
+  LONG_ORG: 'Києво-Могилянської академії'
+  ORG: 'naukma'
+  TEACHER: 'Тамарою Марценюк'
+  VERSION: Prometheus

@@ -130,3 +130,10 @@ IRF/101/2015_T2:
   TEACHER_TITLE: 'викладачкою'
   TEACHER: 'Тамарою Марценюк'
   VERSION: Prometheus
+
+Prometheus/GOV101/2015_T2:
+  LONG_COURSE: 'Основи державної політики'
+  LONG_ORG: 'Києво-Могилянської академії'
+  ORG: 'prometheus'
+  TEACHER: 'Олександром Дем’янчуком'
+  VERSION: Prometheus

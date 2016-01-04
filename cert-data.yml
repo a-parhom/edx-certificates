@@ -54,6 +54,14 @@ NaUKMA/TC101/2015_T1:
   TEACHER: 'Юлією Плієвою'
   VERSION: Prometheus
 
+Prometheus/MARKETING101/2015_T2:
+  LONG_COURSE: 'Маркетинг: розробка та продаж пропозиції цінності'
+  LONG_ORG: 'Києво-Могилянської бізнес-школи, засновницею Apple Consulting'
+  ORG: 'kbms'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Юлією Плієвою'
+  VERSION: Prometheus
+
 KPI/Algorithms101/2015_Spring:
   LONG_COURSE: 'Розробка та аналіз алгоритмів. Частина 1'
   LONG_ORG: 'Національного Технічного Університету України "КПІ"'
@@ -136,4 +144,12 @@ Prometheus/GOV101/2015_T2:
   LONG_ORG: 'Києво-Могилянської академії'
   ORG: 'prometheus'
   TEACHER: 'Олександром Дем’янчуком'
+  VERSION: Prometheus
+
+LITS/104/2015_T4:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
   VERSION: Prometheus

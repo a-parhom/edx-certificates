@@ -153,3 +153,10 @@ LITS/104/2015_T4:
   TEACHER_TITLE: 'викладачкою'
   TEACHER: 'Світланою Шабаранською'
   VERSION: Prometheus
+
+Prometheus/Startup101/2015_T2:
+  LONG_COURSE: 'Як створити стартап'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus

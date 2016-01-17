@@ -761,6 +761,8 @@ class CertificateGen(object):
         # This is to certify..
 
         styleOpenSansLight.fontSize = 12
+        if 'Startup101' in self.course:
+            styleOpenSansLight.fontSize = 16
         styleOpenSansLight.leading = 10
         styleOpenSansLight.textColor = colors.Color(
             0.118, 0.235, 0.314)
@@ -796,8 +798,11 @@ class CertificateGen(object):
         else:
             style.fontSize = 34
             nameYOffset = 128.5
+            
+        if 'Startup101' in self.course:
+            nameYOffset = 122
 
-        styleOpenSans.textColor = colors.Color(
+        style.textColor = colors.Color(
             0, 0.658, 0.690)
         style.alignment = TA_LEFT
 
@@ -808,6 +813,8 @@ class CertificateGen(object):
         # Successfully completed
 
         styleOpenSansLight.fontSize = 12
+        if 'Startup101' in self.course:
+            styleOpenSansLight.fontSize = 16
         styleOpenSansLight.leading = 10
         styleOpenSansLight.textColor = colors.Color(
             0.118, 0.235, 0.314)
@@ -823,7 +830,10 @@ class CertificateGen(object):
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
 
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
+        if 'Startup101' in self.course:
+            paragraph.drawOn(c, LEFT_INDENT * mm, 102 * mm)
+        else:
+            paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
 
         # Course name
 
@@ -851,6 +861,9 @@ class CertificateGen(object):
         else:
             style.fontSize = 24
             nameYOffset = 101
+            
+        if 'Startup101' in self.course:
+            nameYOffset = 89
 
         for ii in range(len(long_course_list)):
             long_course_part = long_course_list[ii]
@@ -871,44 +884,53 @@ class CertificateGen(object):
             0.118, 0.235, 0.314)
         styleOpenSansLight.alignment = TA_LEFT
         
-#        teacher_str = "викладачем"
-        if self.teacher_title:
-            teacher_str = self.teacher_title
-        else:
-            teacher_str = "викладачем"
-
-#        paragraph_string = "навчальний курс, який наданий <b>{0}</b>" \
-#                           ", an online learning<br /><br />initiative of " \
-#                           "<b>{1}</b> through <b>edX</b>.".format(
-#                               self.org, self.long_org.decode('utf-8'))
-#        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
-#                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
-#                               teacher_str, self.org, self.teacher)
-        if self.teacher_first_line:
-            paragraph_string = "наданий {0} <b>{1}</b> <b>{2}</b><br />".format(teacher_str, self.long_org, self.teacher)
-        else:
-            paragraph_string = "наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
-        paragraph = Paragraph(paragraph_string, styleOpenSansLight)
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
-        
-        if self.teacher_first_line:
-            paragraph_string = "через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
-        else:
-            paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(
-                               self.teacher)
-
-        paragraph = Paragraph(paragraph_string, styleOpenSansLight)
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
-        
-        # Subscription for certain courses
-        if self.course=='101' and self.org=='irf':
-            styleOpenSansLight.fontSize = 9
-            paragraph_string = '<i>Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA)</i>.'
+        if 'Startup101' in self.course:
+            styleOpenSansLight.fontSize = 16
+            paragraph_string = "наданий платформою масових відкритих онлайн-курсів <b>Prometheus</b>."
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-            paragraph.drawOn(c, LEFT_INDENT * mm, 67 * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 72 * mm)
+            
+        else:
+            
+    #        teacher_str = "викладачем"
+            if self.teacher_title:
+                teacher_str = self.teacher_title
+            else:
+                teacher_str = "викладачем"
+    
+    #        paragraph_string = "навчальний курс, який наданий <b>{0}</b>" \
+    #                           ", an online learning<br /><br />initiative of " \
+    #                           "<b>{1}</b> through <b>edX</b>.".format(
+    #                               self.org, self.long_org.decode('utf-8'))
+    #        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
+    #                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
+    #                               teacher_str, self.org, self.teacher)
+            if self.teacher_first_line:
+                paragraph_string = "наданий {0} <b>{1}</b> <b>{2}</b><br />".format(teacher_str, self.long_org, self.teacher)
+            else:
+                paragraph_string = "наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
+            
+            if self.teacher_first_line:
+                paragraph_string = "через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
+            else:
+                paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(
+                                   self.teacher)
+    
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
+            
+            # Subscription for certain courses
+            if self.course=='101' and self.org=='irf':
+                styleOpenSansLight.fontSize = 9
+                paragraph_string = '<i>Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA)</i>.'
+                paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+                paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+                paragraph.drawOn(c, LEFT_INDENT * mm, 67 * mm)
 
         # Honor code
 

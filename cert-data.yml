@@ -160,3 +160,11 @@ Prometheus/Startup101/2015_T2:
   ORG: 'prometheus'
   TEACHER: ''
   VERSION: Prometheus
+
+Prometheus/Lobby101/2015_T2:
+  LONG_COURSE: 'Основи лобіювання'
+  LONG_ORG: 'міжнародної консалтингової компанії PBN Hill+Knowlton Strategies'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'практикуючим лобістом'
+  TEACHER: 'Оленою Прокопенко'
+  VERSION: Prometheus

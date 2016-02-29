@@ -168,3 +168,12 @@ Prometheus/Lobby101/2015_T2:
   TEACHER_TITLE: 'практикуючим лобістом'
   TEACHER: 'Оленою Прокопенко'
   VERSION: Prometheus
+
+LITS/105/2015_T4:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Георгієм Гульовим та Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

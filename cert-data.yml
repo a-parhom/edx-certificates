@@ -177,3 +177,11 @@ LITS/105/2016_T1:
   TEACHER: 'Георгієм Гульовим та Денисом Сороханом'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+Prometheus/ENG103/2016_T1:
+  LONG_COURSE: 'Бізнес-англійська'
+  LONG_ORG: ', тренером з бізнес-англійської'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Іванною Табачук'
+  VERSION: Prometheus

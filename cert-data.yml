@@ -186,3 +186,11 @@ Prometheus/ENG103/2016_T1:
   TEACHER: 'Іванною Табачук'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+Prometheus/LAW102/2016_T1:
+  LONG_COURSE: 'Юридичні аспекти створення та ведення бізнесу в Україні'
+  LONG_ORG: 'юридичної компанії "Spektor Law Firm"'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'засновником'
+  TEACHER: 'Ольгою Спектор'
+  VERSION: Prometheus

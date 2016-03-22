@@ -197,8 +197,8 @@ Prometheus/LAW102/2016_T1:
 
 Prometheus/ACC101/2016_T1:
   LONG_COURSE: 'Основи оподаткування в Україні'
-  LONG_ORG: 'компанії "Фінасистент ТОВ"'
+  LONG_ORG: '"Фінасистент ТОВ"'
   ORG: 'prometheus'
-  TEACHER_TITLE: 'засновником і директором'
+  TEACHER_TITLE: 'засновником і директором компанії'
   TEACHER: 'Олександром Бородіним'
   VERSION: Prometheus

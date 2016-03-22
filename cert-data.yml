@@ -194,3 +194,11 @@ Prometheus/LAW102/2016_T1:
   TEACHER_TITLE: 'засновником'
   TEACHER: 'Ольгою Спектор'
   VERSION: Prometheus
+
+Prometheus/ACC101/2016_T1:
+  LONG_COURSE: 'Основи оподаткування в Україні'
+  LONG_ORG: 'компанії "Фінасистент ТОВ"'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'засновником і директором'
+  TEACHER: 'Олександром Бородіним'
+  VERSION: Prometheus

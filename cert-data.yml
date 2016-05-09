@@ -209,3 +209,11 @@ KNU/103/2015_T2:
   ORG: 'knu'
   TEACHER: 'Артемом Захарченком'
   VERSION: Prometheus
+
+NAUKMA/ANTICOR101/2015_T2:
+  LONG_COURSE: 'Боротьба з корупцією'
+  LONG_ORG: '"Центру протидії корупції"'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'виконавчим директором'
+  TEACHER: 'Дариною Каленюк'
+  VERSION: Prometheus

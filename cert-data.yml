@@ -217,3 +217,12 @@ NAUKMA/ANTICOR101/2015_T2:
   TEACHER_TITLE: 'виконавчим директором'
   TEACHER: 'Дариною Каленюк'
   VERSION: Prometheus
+
+Prometheus/MOOC101/2016_T1:
+  LONG_COURSE: 'Як створити масовий відкритий онлайн-курс'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'співзасновниками'
+  TEACHER: 'Іваном Примаченко та Олексієм Молчановським'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

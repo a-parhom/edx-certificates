@@ -154,6 +154,14 @@ LITS/104/2015_T4:
   TEACHER: 'Світланою Шабаранською'
   VERSION: Prometheus
 
+LITS/106/2015_T4:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
+  VERSION: Prometheus
+
 Prometheus/Startup101/2015_T2:
   LONG_COURSE: 'Як створити стартап'
   LONG_ORG: 'Prometheus'

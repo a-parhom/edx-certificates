@@ -936,7 +936,7 @@ class CertificateGen(object):
             paragraph.drawOn(c, LEFT_INDENT * mm, (80-delta) * mm)
             
             # Subscription for certain courses
-            if self.org=='irf':
+            if self.org=='irf' and self.course=='101':
                 styleOpenSansLight.fontSize = 9
                 paragraph_string = '<i>Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA)</i>.'
                 paragraph = Paragraph(paragraph_string, styleOpenSansLight)

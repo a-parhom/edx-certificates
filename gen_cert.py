@@ -919,13 +919,13 @@ class CertificateGen(object):
             
             delta = 0
             if self.teacher_separate_line:
-                paragraph_string = "<b>{0}</b>".format(teacher_str)
+                paragraph_string = "<b>{0}</b>".format(self.teacher)
                 paragraph = Paragraph(paragraph_string, styleOpenSansLight)
                 paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
                 paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
                 delta = 6
             
-            if self.teacher_first_line:
+            if self.teacher_first_line or self.teacher_separate_line:
                 paragraph_string = "через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
             else:
                 paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(

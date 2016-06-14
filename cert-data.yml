@@ -234,3 +234,13 @@ Prometheus/MOOC101/2016_T1:
   TEACHER: 'Іваном Примаченком та Олексієм Молчановським'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+IRF/URBAN101/2015_T1:
+  LONG_COURSE: 'Урбаністика: сучасне місто'
+  LONG_ORG: 'аналітичного центру CEDOS</b> та <b>Центру урбаністичних студій НаУКМА'
+  ORG: 'irf'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Ігорем Тищенко</b>, <b>Іваном Вербицьким</b>, <b>Світланою Шліпченко'
+  TEACHER_AT_FIRST_LINE: 1
+  TEACHER_SEPARATE_LINE: 1
+  VERSION: Prometheus

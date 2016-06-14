@@ -186,8 +186,8 @@ class CertificateGen(object):
 
     def __init__(self, course_id, template_pdf=None, aws_id=None, aws_key=None,
                  dir_prefix=None, long_org=None, long_course=None, issued_date=None, 
-                 teacher=None, teacher_title=None, teacher_first_line=None,
-                 second_org_line=None):
+                 teacher=None, teacher_title=None, teacher_first_line=None, 
+                 second_org_line=None, teacher_separate_line=None):
         """Load a pdf template and initialize
 
         Multiple certificates can be generated and uploaded for a single course.
@@ -232,6 +232,7 @@ class CertificateGen(object):
             self.teacher_title = teacher_title or cert_data.get('TEACHER_TITLE', '').encode('utf-8')
             self.teacher_first_line = teacher_first_line or cert_data.get('TEACHER_AT_FIRST_LINE', '')
             self.second_org_line = second_org_line or cert_data.get('SECOND_ORG_LINE', '').encode('utf-8')
+            self.teacher_separate_line = teacher_separate_line or cert_data.get('TEACHER_SEPARATE_LINE', '').encode('utf-8')
 #            log.critical("long_course after: {0}".format(self.long_course.decode('utf-8')))
             self.issued_date = issued_date or cert_data.get('ISSUED_DATE', date.today().strftime("%d.%m.%Y")).encode('utf-8') or 'ROLLING'
             self.interstitial_texts = collections.defaultdict(interstitial_factory())
@@ -908,13 +909,21 @@ class CertificateGen(object):
     #        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
     #                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
     #                               teacher_str, self.org, self.teacher)
-            if self.teacher_first_line:
+            if self.teacher_first_line and not self.teacher_separate_line:
                 paragraph_string = "наданий {0} <b>{1}</b> <b>{2}</b><br />".format(teacher_str, self.long_org, self.teacher)
             else:
                 paragraph_string = "наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
+            
+            delta = 0
+            if self.teacher_separate_line:
+                paragraph_string = "<b>{0}</b>".format(teacher_str)
+                paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+                paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+                paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
+                delta = 6
             
             if self.teacher_first_line:
                 paragraph_string = "через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
@@ -924,10 +933,10 @@ class CertificateGen(object):
     
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-            paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, (80-delta) * mm)
             
             # Subscription for certain courses
-            if self.course=='101' and self.org=='irf':
+            if self.org=='irf':
                 styleOpenSansLight.fontSize = 9
                 paragraph_string = '<i>Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA)</i>.'
                 paragraph = Paragraph(paragraph_string, styleOpenSansLight)

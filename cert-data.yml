@@ -241,6 +241,6 @@ IRF/URBAN101/2015_T1:
   ORG: 'irf'
   TEACHER_TITLE: 'викладачами'
   TEACHER: 'Ігорем Тищенко</b>, <b>Іваном Вербицьким</b>, <b>Світланою Шліпченко'
-  TEACHER_AT_FIRST_LINE: 1
-  TEACHER_SEPARATE_LINE: 0
+  TEACHER_AT_FIRST_LINE: 0
+  TEACHER_SEPARATE_LINE: 1
   VERSION: Prometheus

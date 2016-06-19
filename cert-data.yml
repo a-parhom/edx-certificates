@@ -244,3 +244,10 @@ IRF/URBAN101/2015_T1:
   TEACHER_AT_FIRST_LINE: 0
   TEACHER_SEPARATE_LINE: 1
   VERSION: Prometheus
+
+Prometheus/PP101/2016_T1:
+  LONG_COURSE: 'Публічні закупівлі'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus

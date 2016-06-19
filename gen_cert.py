@@ -848,6 +848,8 @@ class CertificateGen(object):
         styleOpenSans.leading = 10
         styleOpenSans.textColor = colors.Color(
             0.31, 0.749, 0)
+        if 'PP101' in self.course:
+            styleOpenSans.textColor = colors.Color(0, 0.658, 0.690)
         styleOpenSans.alignment = TA_LEFT
 
         #paragraph_string = "<b><i>{0}: {1}</i></b>".format(
@@ -893,6 +895,13 @@ class CertificateGen(object):
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, LEFT_INDENT * mm, 72 * mm)
+            
+        elif 'PP101' in self.course:
+            styleOpenSansLight.fontSize = 12
+            paragraph_string = "наданий платформою масових відкритих онлайн-курсів <b>Prometheus</b>."
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
             
         else:
             

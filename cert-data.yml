@@ -259,6 +259,13 @@ Prometheus/PP101/2016_T1:
   TEACHER: ''
   VERSION: Prometheus
 
+Prometheus/PP102/2016_T1:
+  LONG_COURSE: 'Публічні закупівлі. Поглиблений'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus
+
 IRF/SOC101/2015_T1:
   LONG_COURSE: 'Соціологія та соціальні дослідження: що, як, навіщо'
   LONG_ORG: ' '

@@ -807,6 +807,8 @@ class CertificateGen(object):
 
         style.textColor = colors.Color(
             0, 0.658, 0.690)
+        if 'PP102' in self.course:
+            style.textColor = colors.Color(0.925, 0.804, 0.173)
         style.alignment = TA_LEFT
 
         paragraph = Paragraph(paragraph_string, style)
@@ -850,6 +852,8 @@ class CertificateGen(object):
             0.31, 0.749, 0)
         if 'PP101' in self.course:
             styleOpenSans.textColor = colors.Color(0, 0.658, 0.690)
+        elif 'PP102' in self.course:
+            styleOpenSans.textColor = colors.Color(0.925, 0.804, 0.173)
         styleOpenSans.alignment = TA_LEFT
 
         #paragraph_string = "<b><i>{0}: {1}</i></b>".format(

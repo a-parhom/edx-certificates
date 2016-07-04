@@ -274,3 +274,12 @@ IRF/SOC101/2015_T1:
   TEACHER: 'Оленою Богдан</b> та <b>Іриною Бекешкіною'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+LITS/107/2016_T2:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

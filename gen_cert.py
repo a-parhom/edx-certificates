@@ -900,7 +900,7 @@ class CertificateGen(object):
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, LEFT_INDENT * mm, 72 * mm)
             
-        elif 'PP101' in self.course:
+        elif 'PP101' in self.course or 'PP102' in self.course:
             styleOpenSansLight.fontSize = 12
             paragraph_string = "наданий платформою масових відкритих онлайн-курсів <b>Prometheus</b>."
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)

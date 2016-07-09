@@ -283,3 +283,10 @@ LITS/107/2016_T2:
   TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+Prometheus/CS50/2016_T1:
+  LONG_COURSE: 'CS50: Основи програмування'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus

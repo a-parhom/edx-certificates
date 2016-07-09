@@ -802,7 +802,7 @@ class CertificateGen(object):
             style.fontSize = 34
             nameYOffset = 128.5
             
-        if 'Startup101' in self.course:
+        if 'Startup101' in self.course or 'CS50' in self.course:
             nameYOffset = 122
 
         style.textColor = colors.Color(
@@ -835,7 +835,7 @@ class CertificateGen(object):
         paragraph = Paragraph(paragraph_string, styleOpenSansLight)
 
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        if 'Startup101' in self.course:
+        if 'Startup101' in self.course or 'CS50' in self.course:
             paragraph.drawOn(c, LEFT_INDENT * mm, 102 * mm)
         else:
             paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
@@ -871,7 +871,7 @@ class CertificateGen(object):
             style.fontSize = 24
             nameYOffset = 101
             
-        if 'Startup101' in self.course:
+        if 'Startup101' in self.course or 'CS50' in self.course:
             nameYOffset = 89
 
         for ii in range(len(long_course_list)):
@@ -893,7 +893,7 @@ class CertificateGen(object):
             0.118, 0.235, 0.314)
         styleOpenSansLight.alignment = TA_LEFT
         
-        if 'Startup101' in self.course:
+        if 'Startup101' in self.course or 'CS50' in self.course:
             styleOpenSansLight.fontSize = 16
             paragraph_string = "наданий платформою масових відкритих онлайн-курсів <b>Prometheus</b>."
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)

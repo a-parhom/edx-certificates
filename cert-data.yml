@@ -290,3 +290,13 @@ Prometheus/CS50/2016_T1:
   ORG: 'prometheus'
   TEACHER: ''
   VERSION: Prometheus
+
+rabotaua/WORK101/2016_T1:
+  LONG_COURSE: 'Як знайти роботу своєї мрії'
+  LONG_ORG: 'rabota.ua'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачками'
+  TEACHER: 'Тетяною Пашкіною</b> та <b>Людмилою Колб'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus
+

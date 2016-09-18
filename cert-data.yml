@@ -300,3 +300,10 @@ rabotaua/WORK101/2016_T1:
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
 
+UCU/History001/2016_T1:
+  LONG_COURSE: 'Вибрані питання європейської історії'
+  LONG_ORG: 'Українського католицького університету'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'професором'
+  TEACHER: 'Ярославом Грицаком'
+  VERSION: Prometheus

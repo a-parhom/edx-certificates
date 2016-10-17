@@ -307,3 +307,11 @@ UCU/History001/2016_T1:
   TEACHER_TITLE: 'професором'
   TEACHER: 'Ярославом Грицаком'
   VERSION: Prometheus
+
+LITS/108/2016_T4:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
+  VERSION: Prometheus

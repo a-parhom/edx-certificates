@@ -40,6 +40,13 @@ Prometheus/ENTREPR101/2016_T1:
   TEACHER: 'Олексієм Геращенком'
   VERSION: Prometheus
 
+Prometheus/CUB_ENTREPR101/2016_T4:
+  LONG_COURSE: 'Підприємництво. Власна справа в Україні'
+  LONG_ORG: 'Києво-Могилянської бізнес-школи'
+  ORG: 'kbms'
+  TEACHER: 'Олексієм Геращенком'
+  VERSION: Prometheus
+
 KNU/101/2014_T2:
   LONG_COURSE: 'Новітня історія України: від початку Другої світової війни до сучасності'
   LONG_ORG: 'Київського національного університету імені Тараса Шевченка'
@@ -62,6 +69,14 @@ NaUKMA/TC101/2015_T1:
   VERSION: Prometheus
 
 Prometheus/MARKETING101/2015_T2:
+  LONG_COURSE: 'Маркетинг: розробка та продаж пропозиції цінності'
+  LONG_ORG: 'Києво-Могилянської бізнес-школи, засновницею Apple Consulting'
+  ORG: 'kbms'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Юлією Плієвою'
+  VERSION: Prometheus
+
+Prometheus/CUB_MARKETING101/2016_T4:
   LONG_COURSE: 'Маркетинг: розробка та продаж пропозиції цінності'
   LONG_ORG: 'Києво-Могилянської бізнес-школи, засновницею Apple Consulting'
   ORG: 'kbms'

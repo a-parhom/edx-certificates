@@ -330,3 +330,11 @@ LITS/108/2016_T4:
   TEACHER_TITLE: 'викладачкою'
   TEACHER: 'Світланою Шабаранською'
   VERSION: Prometheus
+
+LITS/WU-LNU-101/2016_T4:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
+  VERSION: Prometheus

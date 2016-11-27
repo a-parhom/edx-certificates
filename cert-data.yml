@@ -338,3 +338,12 @@ LITS/WU-LNU-101/2016_T4:
   TEACHER_TITLE: 'викладачкою'
   TEACHER: 'Світланою Шабаранською'
   VERSION: Prometheus
+
+LITS/109/2016_T4:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

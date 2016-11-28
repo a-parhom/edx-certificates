@@ -347,3 +347,11 @@ LITS/109/2016_T4:
   TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+IRF/101/2015_T2:
+  LONG_COURSE: 'Аналіз даних та статистичне виведення на мові R'
+  LONG_ORG: ' '
+  ORG: 'irf'
+  TEACHER_TITLE: 'фахівцем з аналізу даних (senior data scientist)'
+  TEACHER: 'Анастасією Корніловою'
+  VERSION: Prometheus

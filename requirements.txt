@@ -7,5 +7,5 @@ pep8==1.5.7
 pyPdf2==1.23
 python-bidi==0.3.4
 PyYAML==3.11
-reportlab==3.1.8
+reportlab==3.1.44
 requests==2.3.0

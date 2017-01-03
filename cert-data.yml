@@ -355,3 +355,11 @@ IRF/Stat101/2016_T3:
   TEACHER_TITLE: 'фахівцем з аналізу даних (senior data scientist)'
   TEACHER: 'Анастасією Корніловою'
   VERSION: Prometheus
+
+IRF/Stat101/2016_T3:
+  LONG_COURSE: 'Візуалізація даних'
+  LONG_ORG: ' '
+  ORG: 'irf'
+  TEACHER_TITLE: 'керівником напрямку візуалізації та журналістики даних, Texty.org.ua'
+  TEACHER: 'Анатолієм Бондаренком'
+  VERSION: Prometheus

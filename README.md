@@ -55,13 +55,13 @@ Generating sample certificates
     ```shell
     cd edx-certificates
     python create_pdfs.py \
-        --course-id 'edX/DemoX/Demo_Course' \
+        --course-id 'course-v1:edX+DemoX+Demo_Course' \
         --name 'Guido' \
         --no-upload \
         ;
     ```
 
-    - `edX/DemoX/Demo_Course` should be a valid course id found in
+    - `course-v1:edX+DemoX+Demo_Course` should be a valid course id found in
       `${CERT_PRIVATE_DIR}`
 
     - View all options with:
@@ -93,6 +93,27 @@ indicating there was a problem.
 ## Generation overview
 
 TODO
+
+## Internationalization and Localization
+
+There is none. Every renderer should have complete Unicode support throughout,
+but every certificate template render method is built around English-grammar
+sentence interpolation. Consequently, if the target language of the certificate
+has very different sentence structure, you may find the easiest way to add
+support for your language is to fork an existing renderer. We suggest 
+```_generate_v3_dynamic_certificate```.
+
+If you think that your new renderer would be useful to the international Open
+edX community, please issue a pull request! We'd love to have 3_dynamic
+renderers for new languages.
+
+Some members of the Open edX community maintain multiple private modifications
+to the open source edX projects, and use a branching scheme similar to the one
+described by [Giulio Gratta in this edX Eng blog
+post](http://engineering.edx.org/2014/12/how-stanford-runs-its-own-fork/).  If
+you have many changes to the code base, a system like this might help you stay
+organized. If, on the other hand you are only forking one template renderer,
+this may be too complex. Please do whatever works best for your site.
 
 ## Logging
 

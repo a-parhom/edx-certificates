@@ -37,6 +37,7 @@ from boto.s3.key import Key
 from bidi.algorithm import get_display
 import arabic_reshaper
 
+from opaque_keys.edx.keys import CourseKey
 
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
 
@@ -192,23 +193,26 @@ class CertificateGen(object):
 
         Multiple certificates can be generated and uploaded for a single course.
 
-        course_id    - Full course_id (ex: MITx/6.00x/2012_Fall)
+        course_id    - Full course_id (ex: course-v1:MITx+6.00x+1T2015)
         course_name  - Human readable course title (ex: Introduction to Curling)
         dir_prefix   - Temporary directory for file generation. Ceritificates
                        and signatures are copied here temporarily before they
                        are uploaded to S3
-        template_pdf - Template (filename.pdf) to use for the certificate
-                       generation.
+        template_pdf - (optional) Template (filename.pdf) to use for the
+                       certificate generation.
         aws_id       - necessary for S3 uploads
         aws_key      - necessary for S3 uploads
 
         course_id is used to look up extra data from settings.CERT_DATA,
         including (but not necessarily limited to):
-          * LONG_ORG    - long name for the organization
-          * ISSUED_DATE - month, year that corresponds to the
-                          run of the course
+          * LONG_ORG     - long name for the organization
+          * ISSUED_DATE  - month, year that corresponds to the
+                           run of the course
+          * TEMPLATEFILE - the template pdf filename to use, equivalent to
+                           template_pdf parameter
         """
         if dir_prefix is None:
+            self._ensure_dir(TMP_GEN_DIR)
             dir_prefix = tempfile.mkdtemp(prefix=TMP_GEN_DIR)
         self._ensure_dir(dir_prefix)
         self.dir_prefix = dir_prefix
@@ -241,12 +245,11 @@ class CertificateGen(object):
             log.critical("Unable to lookup long names for course {0}".format(course_id))
             raise
 
-        # split the org and course from the course_id
-        # if COURSE or ORG is set in the configuration
-        # dictionary, use that instead
-        tmp_org, tmp_course, tmp_run = course_id.split('/')
-        self.course = cert_data.get('COURSE', tmp_course)
-        self.org = cert_data.get('ORG', tmp_org)
+        # if COURSE or ORG is set in the configuration attempt to parse.
+        # This supports both new and old style course keys.
+        course_key = CourseKey.from_string(course_id)
+        self.course = cert_data.get('COURSE', course_key.course)
+        self.org = cert_data.get('ORG', course_key.org)
 
         # get the template version based on the course settings in the
         # certificates repo, with sensible defaults so that we can generate
@@ -255,9 +258,12 @@ class CertificateGen(object):
         self.template_type = 'honor'
         # search for certain keywords in the file name, we'll probably want to
         # be better at parsing this later
+        # If TEMPLATEFILE is set in cert-data.yml, this value has top priority.
+        # Else if a value is passed in to the constructor (eg, from xqueue), it is used,
+        # Else, the filename is calculated from the version and course_id.
+        template_pdf = cert_data.get('TEMPLATEFILE', template_pdf)
         template_prefix = '{0}/v{1}-cert-templates'.format(TEMPLATE_DIR, self.template_version)
-        template_pdf_filename = "{0}/certificate-template-{1}-{2}.pdf".format(
-            template_prefix, self.org, self.course)
+        template_pdf_filename = "{0}/certificate-template-{1}-{2}.pdf".format(template_prefix, self.org, self.course)
         if template_pdf:
             template_pdf_filename = "{0}/{1}".format(template_prefix, template_pdf)
             if 'verified' in template_pdf:
@@ -581,10 +587,12 @@ class CertificateGen(object):
             0, 0.624, 0.886)
         styleOpenSans.alignment = TA_LEFT
 
+
         #paragraph_string = "<b><i>{0}: {1}</i></b>".format(
         #    self.course, self.long_course.decode('utf-8'))
         paragraph_string = "<b><i>{0}</i></b>".format(
             self.course)
+
         paragraph = Paragraph(paragraph_string, styleOpenSans)
         # paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         if 'PH207x' in self.course:
@@ -1210,7 +1218,7 @@ class CertificateGen(object):
         if self.template_type == 'verified':
             styleAvenirCourseName.textColor = v_style_color_course
 
-        paragraph_string = "{0}: {1}".format(self.course, self.long_course)
+        paragraph_string = u"{0}: {1}".format(self.course, self.long_course)
         html_paragraph_string = html.unescape(paragraph_string)
         larger_width = stringWidth(html_paragraph_string.decode('utf-8'),
                                    'AvenirNext-DemiBold', style_type_course_size) / mm
@@ -1629,7 +1637,21 @@ class CertificateGen(object):
                         with which to stamp the cert. Defaults to CERT_DATA's
                         ISSUED_DATE, or today's date for ROLLING.
 
-        return (download_uuid, verify_uuid, download_url)
+        CONFIGURATION PARAMETERS:
+            The following items are brought in from the cert-data.yml stanza for the
+        current course:
+        LONG_COURSE  - (optional) The course title to be printed on the cert;
+                       unset means to use the value passed in as part of the
+                       certificate request.
+        ISSUED_DATE  - (optional) If given, the date string which should be
+                       stamped onto each and every certificate. The value
+                       ROLLING is equivalent to leaving ISSUED_DATE unset, which
+                       stamps the certificates with the current date.
+        TEMPLATEFILE - (optional) If given, the filename referred to by
+                       TEMPLATEFILE will be used as the template over which
+                       to render.
+
+        RETURNS (download_uuid, verify_uuid, download_url)
         """
 
         verify_me_p = self.cert_data.get('VERIFY', True)
@@ -1839,7 +1861,31 @@ class CertificateGen(object):
                         with which to stamp the cert. Defaults to CERT_DATA's
                         ISSUED_DATE, or today's date for ROLLING.
 
-        return (download_uuid, verify_uuid, download_url)
+        CONFIGURATION PARAMETERS:
+        The following items are brought in from the cert-data.yml stanza for the
+        current course:
+        MD_CERTS     - A list of all of the student titles which qualify to get the
+                       MD/DO certificate and receive CME credit
+        NO_TITLE     - A list of student titles which should be treated as
+                       equivalent to having no title at all.
+        CREDITS      - A string describing what accreditation this CME
+                       certificate is good for, e.g., "## Blabbity Blab Credits".
+        LONG_COURSE  - (optional) The course title to be printed on the cert;
+                       unset means to use the value passed in as part of the
+                       certificate request.
+        ISSUED_DATE  - (optional) If given, the date string which should be
+                       stamped onto each and every certificate. The value
+                       ROLLING is equivalent to leaving ISSUED_DATE unset, which
+                       stamps the certificates with the current date.
+        TEMPLATEFILE - (optional) If given, the filename referred to by
+                       TEMPLATEFILE will be used as the template over which
+                       to render.
+
+        RETURNS (download_uuid, verify_uuid, download_url)
+
+        Note that CME certificates never generate verification URLs; the
+        underlying template is expected to embed contact information for
+        the relevant medical school.
         """
 
         # Landscape Letter page size is 279mm x 216 mm
@@ -1937,16 +1983,22 @@ class CertificateGen(object):
         draw_centered_text(u"<b>{0}</b>".format(paragraph_string), style, 95)
 
         # Credits statement
+        # This is pretty fundamentally not internationalizable; like the rest of the certificate template renderers
+        # we do text interpolation that assumes English subject/object relationships. If this language needs to be
+        # varied, the best place to do that is probably a forked rendering method. There is some additional
+        # information in the documentation.
         style.fontSize = 18
-        if gets_md_cert:
-            paragraph_string = "and is awarded 23.5 " \
-                "<i>AMA PRA Category 1 Credits(s)</i>" \
-                "<super><font size=13>TM.</font></super>"
-        else:
-            paragraph_string = "The activity was designated for 23.5 " \
-                "<i>AMA PRA Category 1 Credits(s)</i>" \
-                "<super><font size=13>TM.</font></super>"
-        draw_centered_text(paragraph_string, style, 80)
+        credit_info = self.cert_data.get('CREDITS', '')
+        if credit_info:
+            if gets_md_cert:
+                paragraph_string = u"and is awarded {credit_info}".format(
+                    credit_info=credit_info.decode('utf-8'),
+                )
+            else:
+                paragraph_string = u"The activity was designated for {credit_info}".format(
+                    credit_info=credit_info.decode('utf-8'),
+                )
+            draw_centered_text(paragraph_string, style, 80)
 
         # MD/DO vs AHP tags
         style.fontSize = 8
@@ -1998,13 +2050,29 @@ class CertificateGen(object):
 
         OPTIONAL PARAMETERS:
         filename      - the filename to write out, e.g., 'Statement.pdf'.
-                        Defaults to settings.TARGET_FILENAME
+                        Defaults to settings.TARGET_FILENAME.
         grade         - the grade received by the student. Defaults to 'Pass'
         generate_date - specifies an ISO formatted date (i.e., '2012-02-02')
                         with which to stamp the cert. Defaults to CERT_DATA's
                         ISSUED_DATE, or today's date for ROLLING.
 
-        return (download_uuid, verify_uuid, download_url)
+        CONFIGURATION PARAMETERS:
+            The following items are brought in from the cert-data.yml stanza for the
+        current course:
+        LONG_COURSE    - (optional) The course title to be printed on the cert;
+                         unset means to use the value passed in as part of the
+                         certificate request.
+        ISSUED_DATE    - (optional) If given, the date string which should be
+                         stamped onto each and every certificate. The value
+                         ROLLING is equivalent to leaving ISSUED_DATE unset, which
+                         stamps the certificates with the current date.
+        HAS_DISCLAIMER - (optional) If given, the programmatic disclaimer that
+                         is usually rendered at the bottom of the page, is not.
+        TEMPLATEFILE   - (optional) If given, the filename referred to by
+                         TEMPLATEFILE will be used as the template over which
+                         to render.
+
+        RETURNS (download_uuid, verify_uuid, download_url)
         """
 
         verify_me_p = self.cert_data.get('VERIFY', True)
@@ -2025,6 +2093,7 @@ class CertificateGen(object):
 
         WIDTH, HEIGHT = landscape(A4)  # Width and Height of landscape canvas (in points)
         MAX_GEN_WIDTH = WIDTH * .5  # Width to which to constrain text block
+        MAX_FULL_WIDTH = WIDTH * .72  # Width to which to constrian full page text blocks
         GUTTER_WIDTH = 120  # Space from the left and right sides (in points)
         GUTTER_WIDTH = 120  # Space from the right side for Date (in points)
         DATE_INDENT_TOP = 112  # Space from top for Date (in points)
@@ -2069,8 +2138,8 @@ class CertificateGen(object):
             textColor=CARDINAL_RED,
             alignment=TA_LEFT,
         )
-        style_small_honor_text = ParagraphStyle(
-            name="small-honor-text",
+        style_small_text = ParagraphStyle(
+            name="small-text",
             fontSize=7.5,
             leading=10,
             textColor=STANDARD_GRAY,
@@ -2197,6 +2266,24 @@ class CertificateGen(object):
 
         paragraph.drawOn(PAGE, GUTTER_WIDTH, yOffset)
 
+        # SECTION: disclaimer text
+        print_disclaimer = not self.cert_data.get('HAS_DISCLAIMER', False)
+        disclaimer_text = getattr(settings, 'CERTS_SITE_DISCLAIMER_TEXT', '')
+        if print_disclaimer and disclaimer_text:
+            (fonttag, fontfile, disclaimer_style) = font_for_string(
+                fontlist_with_style(style_small_text),
+                disclaimer_text,
+            )
+
+            max_height = disclaimer_style.leading * 3  # allow for up to 9 lines of text
+            max_width = MAX_FULL_WIDTH
+            yOffset = 89  # distance from bottom of page (in points)
+
+            paragraph = Paragraph(disclaimer_text, disclaimer_style)
+            width, height = paragraph.wrapOn(PAGE, max_width, max_height)
+
+            paragraph.drawOn(PAGE, GUTTER_WIDTH, yOffset)
+
         # SECTION: Honor code
         if verify_me_p:
             paragraph_string = u"Authenticity of this {cert_label} can be verified at " \
@@ -2211,12 +2298,12 @@ class CertificateGen(object):
             )
 
             (fonttag, fontfile, honor_style) = font_for_string(
-                fontlist_with_style(style_small_honor_text),
+                fontlist_with_style(style_small_text),
                 achievements_paragraph,
             )
 
             max_height = 10
-            max_width = WIDTH * .72  # set maximum width for verification link line of text
+            max_width = MAX_FULL_WIDTH
 
             paragraph = Paragraph(paragraph_string, honor_style)
             paragraph.wrapOn(PAGE, max_width, max_height)

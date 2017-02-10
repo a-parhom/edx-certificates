@@ -385,3 +385,10 @@ IRF/DV101/2016_T3:
   TEACHER_TITLE: 'керівником напрямку візуалізації та журналістики даних, Texty.org.ua'
   TEACHER: 'Анатолієм Бондаренком'
   VERSION: Prometheus
+
+UQx/THINK101/2016_T2:
+  LONG_COURSE: 'Наука повсякденного мислення'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus

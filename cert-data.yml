@@ -370,3 +370,12 @@ UQx/THINK101/2016_T2:
   ORG: 'prometheus'
   TEACHER: ''
   VERSION: Prometheus
+
+KPI/PHIL101/2016_T2:
+  LONG_COURSE: 'Філософія'
+  LONG_ORG: 'НТУУ «Київський політехнічний інститут ім. Ігоря Сікорського»'
+  ORG: 'irf'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Василем Піхоровичем</b> та <b>Дмитром Столяренком'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

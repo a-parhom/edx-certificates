@@ -399,5 +399,6 @@ KPI/PHIL101/2016_T2:
   ORG: 'irf'
   TEACHER_TITLE: 'викладачами'
   TEACHER: 'Василем Піхоровичем</b> та <b>Дмитром Столяренком'
-  TEACHER_AT_FIRST_LINE: 1
+  TEACHER_AT_FIRST_LINE: 0
+  TEACHER_SEPARATE_LINE: 1
   VERSION: Prometheus

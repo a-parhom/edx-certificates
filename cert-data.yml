@@ -402,3 +402,20 @@ KPI/PHIL101/2016_T2:
   TEACHER_AT_FIRST_LINE: 0
   TEACHER_SEPARATE_LINE: 1
   VERSION: Prometheus
+
+LITS/110/2017_T1:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
+  VERSION: Prometheus
+
+LITS/111/2017_T1:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus

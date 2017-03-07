@@ -419,3 +419,11 @@ LITS/111/2017_T1:
   TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
+
+course-v1:ProZorro+PP202+2017_T1:
+  LONG_COURSE: 'Публічні закупівлі для бізнесу'
+  LONG_ORG: 'Prometheus'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus
+

@@ -435,3 +435,9 @@ EY/ACC102/2017_T1:
   TEACHER: 'Олександром Матросовим'
   VERSION: Prometheus
 
+course-v1:Prometheus+ITArts101+2017_T1:
+  LONG_COURSE: 'Цифрові комунікації в глобальному просторі'
+  LONG_ORG: 'ITArts'
+  ORG: 'prometheus'
+  TEACHER: ''
+  VERSION: Prometheus

@@ -730,60 +730,105 @@ class CertificateGen(object):
         RIGHT_INDENT = 49  # mm from the right side for the CERTIFICATE
 
         # CERTIFICATE
-
-        styleOpenSansLight.fontSize = 19
+        
         styleOpenSansLight.leading = 10
-        styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
-        styleOpenSansLight.alignment = TA_LEFT
 
-        paragraph_string = "СЕРТИФІКАТ"
+        if 'ITArts101' in self.course:
+            styleOpenSansLight.fontSize = 17
+            styleOpenSansLight.textColor = colors.Color(0.365, 0.557, 0.765)
+            styleOpenSansLight.alignment = TA_CENTER
 
-        # Right justified so we compute the width
-        width = stringWidth(
-            paragraph_string,
-            'OpenSans-Bold',
-            19,
-        ) / mm
-        paragraph = Paragraph("<b>{0}</b>".format(
-            paragraph_string), styleOpenSansLight)
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 167 * mm)
+            paragraph_string = "ВІТАЄМО ІЗ ЗАВЕРШЕННЯМ КУРСУ"
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 184 * mm)
+
+            paragraph_string = "«ЦИФРОВІ КОМУНІКАЦІЇ"
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 176 * mm)
+
+            paragraph_string = "В ГЛОБАЛЬНОМУ ПРОСТОРІ»"
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 168 * mm)
+
+        else:
+            styleOpenSansLight.fontSize = 19
+            styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
+            styleOpenSansLight.alignment = TA_LEFT
+
+            paragraph_string = "СЕРТИФІКАТ"
+
+            # Right justified so we compute the width
+            width = stringWidth(
+                paragraph_string,
+                'OpenSans-Bold',
+                19,
+            ) / mm
+            paragraph = Paragraph("<b>{0}</b>".format(
+                paragraph_string), styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 167 * mm)
 
         # Issued ..
 
         styleOpenSansLight.fontSize = 12
         styleOpenSansLight.leading = 10
-        styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
-        styleOpenSansLight.alignment = TA_LEFT
 
         paragraph_string = "Виданий {0}".format(self.issued_date)
 
-        # Right justified so we compute the width
-        width = stringWidth(
-            paragraph_string,
-            'OpenSans-LightItalic',
-            12,
-        ) / mm
-        paragraph = Paragraph("<i>{0}</i>".format(
-            paragraph_string), styleOpenSansLight)
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 159 * mm)
+        if 'ITArts101' in self.course:
+            styleOpenSansLight.textColor = colors.Color(0, 0, 0)
+            styleOpenSansLight.alignment = TA_CENTER
+
+            paragraph = Paragraph("<i>{0}</i>".format(
+                paragraph_string), styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 62 * mm)
+
+        else:
+            styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
+            styleOpenSansLight.alignment = TA_LEFT
+
+            # Right justified so we compute the width
+            width = stringWidth(
+                paragraph_string,
+                'OpenSans-LightItalic',
+                12,
+            ) / mm
+            paragraph = Paragraph("<i>{0}</i>".format(
+                paragraph_string), styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, (WIDTH - RIGHT_INDENT - width) * mm, 159 * mm)
 
         # This is to certify..
 
         styleOpenSansLight.fontSize = 12
-        if 'Startup101' in self.course:
-            styleOpenSansLight.fontSize = 16
         styleOpenSansLight.leading = 10
-        styleOpenSansLight.textColor = colors.Color(
-            0.118, 0.235, 0.314)
-        styleOpenSansLight.alignment = TA_LEFT
+        if 'Startup101' in self.course or 'ITArts101' in self.course:
+            styleOpenSansLight.fontSize = 16
+        if 'ITArts101' in self.course:
+            styleOpenSansLight.textColor = colors.Color(
+                0, 0, 0)
+            styleOpenSansLight.alignment = TA_CENTER
 
-#        paragraph_string = "This is to certify that"
-        paragraph_string = "Цей сертифікат засвідчує, що"        
-        paragraph = Paragraph(paragraph_string, styleOpenSansLight)
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, 134.5 * mm)
+    #        paragraph_string = "This is to certify that"
+            paragraph_string = "Цей сертифікат засвідчує, що"        
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 128 * mm)
+
+        else:
+            styleOpenSansLight.textColor = colors.Color(
+                0.118, 0.235, 0.314)
+            styleOpenSansLight.alignment = TA_LEFT
+
+    #        paragraph_string = "This is to certify that"
+            paragraph_string = "Цей сертифікат засвідчує, що"        
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, 134.5 * mm)
 
         #  Student name
 
@@ -818,25 +863,38 @@ class CertificateGen(object):
         if 'PP102' in self.course:
             style.textColor = colors.Color(0.925, 0.804, 0.173)
         style.alignment = TA_LEFT
+        if 'ITArts101' in self.course:
+            style.textColor = colors.Color(0.365, 0.557, 0.765)
+            style.alignment = TA_CENTER
 
         paragraph = Paragraph(paragraph_string, style)
-        paragraph.wrapOn(c, 200 * mm, 214 * mm)
-        paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
+        if 'ITArts101' in self.course:
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, (nameYOffset - 10) * mm)
+        else:
+            paragraph.wrapOn(c, 200 * mm, 214 * mm)
+            paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
 
         # Successfully completed
 
         styleOpenSansLight.fontSize = 12
-        if 'Startup101' in self.course:
+        if 'Startup101' in self.course or 'ITArts101' in self.course:
             styleOpenSansLight.fontSize = 16
         styleOpenSansLight.leading = 10
         styleOpenSansLight.textColor = colors.Color(
             0.118, 0.235, 0.314)
         styleOpenSansLight.alignment = TA_LEFT
+        if 'ITArts101' in self.course:
+            styleOpenSansLight.textColor = colors.Color(
+            0, 0, 0)
+            styleOpenSansLight.alignment = TA_CENTER
 
 #        paragraph_string = "successfully completed"
         log.info("{0} {1} {2}".format(self.course, self.org, grade))
         if self.course=='101' and self.org=='irf' and grade=="A":
             paragraph_string = "успішно опанував(ла) <b>Експертний рівень</b> курсу"
+        elif 'ITArts101' in self.course:
+            paragraph_string = "успішно закінчив(ла) курс,"
         else:
             paragraph_string = "успішно закінчив(ла) курс"
 
@@ -845,6 +903,8 @@ class CertificateGen(object):
         paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
         if 'Startup101' in self.course or 'CS50' in self.course:
             paragraph.drawOn(c, LEFT_INDENT * mm, 102 * mm)
+        elif 'ITArts101' in self.course:
+            paragraph.drawOn(c, 0 * mm, 101 * mm)
         else:
             paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
 
@@ -882,17 +942,18 @@ class CertificateGen(object):
         if 'Startup101' in self.course or 'CS50' in self.course:
             nameYOffset = 89
 
-        for ii in range(len(long_course_list)):
-            long_course_part = long_course_list[ii]
-            if ii==len(long_course_list)-1:
-                comma = ','
-            else:
-                comma = ''
-            paragraph_string = "<b><i>{0}</i>{1}</b>".format(long_course_part,comma)
-            paragraph = Paragraph(paragraph_string, styleOpenSans)
-            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-            paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
-            nameYOffset -= 8
+        if not 'ITArts101' in self.course:
+            for ii in range(len(long_course_list)):
+                long_course_part = long_course_list[ii]
+                if ii==len(long_course_list)-1:
+                    comma = ','
+                else:
+                    comma = ''
+                paragraph_string = "<b><i>{0}</i>{1}</b>".format(long_course_part,comma)
+                paragraph = Paragraph(paragraph_string, styleOpenSans)
+                paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+                paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
+                nameYOffset -= 8
 
         # A course of study..
 
@@ -914,7 +975,21 @@ class CertificateGen(object):
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
-            
+
+        elif 'ITArts101' in self.course:
+            styleOpenSansLight.fontSize = 16
+            styleOpenSansLight.textColor = colors.Color(
+            0, 0, 0)
+            styleOpenSansLight.alignment = TA_CENTER
+
+            paragraph_string = "наданий <b>ITArts</b> через платформу масових"
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 92 * mm)
+            paragraph_string = "відкритих онлайн-курсів <b>Prometheus</b>"
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 83 * mm)
         else:
             
     #        teacher_str = "викладачем"
@@ -985,10 +1060,16 @@ class CertificateGen(object):
             verify_url=settings.CERT_VERIFY_URL,
             verify_path=S3_VERIFY_PATH,
             verify_uuid=verify_uuid)
-        paragraph = Paragraph(paragraph_string, styleOpenSansLight)
-
-        paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-        paragraph.drawOn(c, 0 * mm, 32 * mm)
+        if 'ITArts101' in self.course:
+            styleOpenSansLight.textColor = colors.Color(
+            0.631, 0.631, 0.631)
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 10 * mm)
+        else:
+            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 0 * mm, 32 * mm)
 
         c.showPage()
         c.save()

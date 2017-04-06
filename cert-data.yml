@@ -441,3 +441,11 @@ course-v1:Prometheus+ITArts101+2017_T1:
   ORG: 'prometheus'
   TEACHER: ''
   VERSION: Prometheus
+
+EPAM/JAVA101/2016_T2:
+  LONG_COURSE: 'Основи програмування на Java'
+  LONG_ORG: ' '
+  ORG: 'epam'
+  TEACHER_TITLE: 'автором'
+  TEACHER: 'Ігорем Деркачем'
+  VERSION: Prometheus

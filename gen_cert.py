@@ -828,7 +828,10 @@ class CertificateGen(object):
             paragraph_string = "Цей сертифікат засвідчує, що"        
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-            paragraph.drawOn(c, LEFT_INDENT * mm, 134.5 * mm)
+            if 'PI101' in self.course:
+                paragraph.drawOn(c, LEFT_INDENT * mm, 130 * mm)
+            else:
+                paragraph.drawOn(c, LEFT_INDENT * mm, 134.5 * mm)
 
         #  Student name
 
@@ -857,6 +860,11 @@ class CertificateGen(object):
             
         if 'Startup101' in self.course or 'CS50' in self.course:
             nameYOffset = 122
+
+        if 'PI101' in self.course and width > 153:
+            nameYOffset = 115
+        elif 'PI101' in self.course:
+            nameYOffset = 121
 
         style.textColor = colors.Color(
             0, 0.658, 0.690)
@@ -905,6 +913,8 @@ class CertificateGen(object):
             paragraph.drawOn(c, LEFT_INDENT * mm, 102 * mm)
         elif 'ITArts101' in self.course:
             paragraph.drawOn(c, 0 * mm, 101 * mm)
+        elif 'PI101' in self.course:
+            paragraph.drawOn(c, LEFT_INDENT * mm, 101 * mm)	
         else:
             paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
 
@@ -941,6 +951,8 @@ class CertificateGen(object):
             
         if 'Startup101' in self.course or 'CS50' in self.course:
             nameYOffset = 89
+        elif 'PI101' in self.course:
+            nameYOffset = 95
 
         if not 'ITArts101' in self.course:
             for ii in range(len(long_course_list)):

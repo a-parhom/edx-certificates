@@ -449,3 +449,10 @@ EPAM/JAVA101/2016_T2:
   TEACHER_TITLE: 'автором'
   TEACHER: 'Ігорем Деркачем'
   VERSION: Prometheus
+
+course-v1:COE+PI101+2017_T1:
+  LONG_COURSE: 'Доступ до публічної інформації: від А до Я'
+  LONG_ORG: ' '
+  ORG: 'coe'
+  TEACHER_TITLE: '<b>Офісом Ради Європи в Україні</b>'
+  VERSION: Prometheus

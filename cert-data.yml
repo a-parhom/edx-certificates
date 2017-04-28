@@ -456,3 +456,11 @@ course-v1:COE+PI101+2017_T1:
   ORG: 'coe'
   TEACHER_TITLE: '<b>Офісом Ради Європи в Україні</b>'
   VERSION: Prometheus
+
+OSCE/DIAL101/2017_T1:
+  LONG_COURSE: 'Як ефективно спланувати та провести діалог'
+  LONG_ORG: ' '
+  ORG: 'osce'
+  TEACHER_TITLE: '<b>Координатором проектів ОБСЄ в Україні</b>'
+  VERSION: Prometheus
+

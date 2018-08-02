@@ -714,6 +714,7 @@ class CertificateGen(object):
         styleArial = ParagraphStyle(name="arial", leading=10, fontName='Arial Unicode')
         styleOpenSans = ParagraphStyle(name="opensans-regular", leading=10, fontName='OpenSans-Regular')
         styleOpenSansLight = ParagraphStyle(name="opensans-light", leading=10, fontName='OpenSans-Light')
+        styleEngine = ParagraphStyle(name="engine", leading=10, fontName='Engine')
 
         # Text is overlayed top to bottom
         #   * Issued date (top right corner)
@@ -753,6 +754,9 @@ class CertificateGen(object):
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, 0 * mm, 168 * mm)
 
+        elif 'SEXED101' in self.course:
+            pass
+
         else:
             styleOpenSansLight.fontSize = 19
             styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
@@ -787,6 +791,22 @@ class CertificateGen(object):
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, 0 * mm, 62 * mm)
 
+        elif 'SEXED101' in self.course:
+            styleEngine.textColor = colors.Color(1, 1, 1)
+            styleEngine.alignment = TA_LEFT
+            styleEngine.fontSize = 17
+
+            paragraph_string = "{0}".format(self.issued_date.replace('.','/'))
+
+            width = stringWidth(
+                paragraph_string,
+                'Engine',
+                17,
+            ) / mm
+            paragraph = Paragraph(paragraph_string, styleEngine)
+            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+            paragraph.drawOn(c, 131 * mm, 17 * mm)
+
         else:
             styleOpenSansLight.textColor = colors.Color(0.805, 0.871, 0.926)
             styleOpenSansLight.alignment = TA_LEFT
@@ -819,6 +839,9 @@ class CertificateGen(object):
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, 0 * mm, 128 * mm)
 
+        elif 'SEXED101' in self.course:
+            pass
+
         else:
             styleOpenSansLight.textColor = colors.Color(
                 0.118, 0.235, 0.314)
@@ -849,6 +872,13 @@ class CertificateGen(object):
             # There is no bold styling for Arial :(
             paragraph_string = "{0}".format(student_name)
 
+        if 'SEXED101' in self.course:
+            style = styleEngine
+            student_name = student_name.decode('utf-8').upper().encode('utf-8')
+            #style.leading = 10
+            width = stringWidth(student_name.decode('utf-8'), 'Engine', 34) / mm
+            paragraph_string = "{0}".format(student_name)
+
         # We will wrap at 200mm in, so if we reach the end (200-47)
         # decrease the font size
         if width > 153:
@@ -865,6 +895,8 @@ class CertificateGen(object):
             nameYOffset = 115
         elif 'PI101' in self.course:
             nameYOffset = 121
+        elif 'SEXED101' in self.course:
+            nameYOffset = 145
 
         style.textColor = colors.Color(
             0, 0.658, 0.690)
@@ -875,10 +907,16 @@ class CertificateGen(object):
             style.textColor = colors.Color(0.365, 0.557, 0.765)
             style.alignment = TA_CENTER
 
+        if 'SEXED101' in self.course:
+            style.textColor = colors.Color(0.796, 0.482, 0.604)
+
         paragraph = Paragraph(paragraph_string, style)
         if 'ITArts101' in self.course:
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, 0 * mm, (nameYOffset - 10) * mm)
+        elif 'SEXED101' in self.course:
+            paragraph.wrapOn(c, 200 * mm, 214 * mm)
+            paragraph.drawOn(c, (LEFT_INDENT - 26) * mm, nameYOffset * mm)
         else:
             paragraph.wrapOn(c, 200 * mm, 214 * mm)
             paragraph.drawOn(c, LEFT_INDENT * mm, nameYOffset * mm)
@@ -903,6 +941,8 @@ class CertificateGen(object):
             paragraph_string = "успішно опанував(ла) <b>Експертний рівень</b> курсу"
         elif 'ITArts101' in self.course:
             paragraph_string = "успішно закінчив(ла) курс,"
+        elif 'DTI101' in self.course:
+            paragraph_string = "прослухав(ла) курс"
         else:
             paragraph_string = "успішно закінчив(ла) курс"
 
@@ -915,6 +955,8 @@ class CertificateGen(object):
             paragraph.drawOn(c, 0 * mm, 101 * mm)
         elif 'PI101' in self.course:
             paragraph.drawOn(c, LEFT_INDENT * mm, 101 * mm)	
+        elif 'SEXED101' in self.course:
+            pass
         else:
             paragraph.drawOn(c, LEFT_INDENT * mm, 112 * mm)
 
@@ -954,7 +996,7 @@ class CertificateGen(object):
         elif 'PI101' in self.course:
             nameYOffset = 95
 
-        if not 'ITArts101' in self.course:
+        if not 'ITArts101' in self.course and not 'SEXED101' in self.course:
             for ii in range(len(long_course_list)):
                 long_course_part = long_course_list[ii]
                 if ii==len(long_course_list)-1:
@@ -1002,6 +1044,10 @@ class CertificateGen(object):
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, 0 * mm, 83 * mm)
+
+        elif 'SEXED101' in self.course:
+            pass
+
         else:
             
     #        teacher_str = "викладачем"
@@ -1017,23 +1063,49 @@ class CertificateGen(object):
     #        paragraph_string = "який наданий {0} <b>{1}</b> <br /><b>{2}</b>" \
     #                                "через систему масових відкритих онлайн курсів <b>Prometheus</b>.".format(
     #                               teacher_str, self.org, self.teacher)
-            if self.teacher_first_line and not self.teacher_separate_line:
+            if self.org=='irf' and self.course=='SOCMANAGE101':
+                paragraph_string = "створений {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
+            elif self.teacher_first_line and not self.teacher_separate_line:
                 paragraph_string = "наданий {0} <b>{1}</b> <b>{2}</b><br />".format(teacher_str, self.long_org, self.teacher)
             else:
                 paragraph_string = "наданий {0} <b>{1}</b> <br />".format(teacher_str, self.long_org)
-            paragraph = Paragraph(paragraph_string, styleOpenSansLight)
-            paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
-            paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
             
-            delta = 0
+            
+            if self.org=='irf' and self.course=='SOCMANAGE101':
+                styleOpenSansLight.leading = 12
+                paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+                delta = 10
+                paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+                paragraph.drawOn(c, LEFT_INDENT * mm, 76 * mm)
+            else:
+                delta = 0
+                paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+                paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+                paragraph.drawOn(c, LEFT_INDENT * mm, 86 * mm)
+            
+
             if self.teacher_separate_line:
                 paragraph_string = "<b>{0}</b>".format(self.teacher)
                 paragraph = Paragraph(paragraph_string, styleOpenSansLight)
                 paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
                 paragraph.drawOn(c, LEFT_INDENT * mm, 80 * mm)
                 delta = 6
-            
-            if self.teacher_first_line or self.teacher_separate_line:
+            if self.org=='irf' and self.course=='SOCMANAGE101':
+                paragraph_string = "та наданий через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
+            elif self.org=='ac' and self.course=='SMS101':
+                paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>,".format(
+                                   self.teacher)
+                paragraph = Paragraph(paragraph_string, styleOpenSansLight)
+                paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
+                paragraph.drawOn(c, LEFT_INDENT * mm, (80-delta) * mm) 
+                delta = 6
+                paragraph_string = "та засвоїв(ла) використання програмного забезпечення «Harmony»."
+            elif (self.org=='prometheus' and self.course=='ADMISSION101') or (self.org=='artarsenal' and self.course=='LIT101'):
+                paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(
+                                   self.teacher)
+                styleOpenSansLight.leading = 15
+                delta = 6
+            elif self.teacher_first_line or self.teacher_separate_line:
                 paragraph_string = "через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(self.teacher)
             else:
                 paragraph_string = "<b>{0}</b> через платформу масових відкритих онлайн-курсів <b>Prometheus</b>.".format(
@@ -1044,7 +1116,7 @@ class CertificateGen(object):
             paragraph.drawOn(c, LEFT_INDENT * mm, (80-delta) * mm)
             
             # Subscription for certain courses
-            if self.org=='irf' and self.course=='101':
+            if self.org=='irf' and (self.course=='101' or self.course=='ML101'):
                 styleOpenSansLight.fontSize = 9
                 paragraph_string = '<i>Курс виготовлено в межах "Ініціативи з розвитку аналітичних центрів в Україні", яку виконує МФ "Відродження" <br />у партнерстві з Фондом розвитку аналітичних центрів (TTF) за фінансової підтримки посольства Швеції в Україні (SIDA)</i>.'
                 paragraph = Paragraph(paragraph_string, styleOpenSansLight)
@@ -1068,6 +1140,11 @@ class CertificateGen(object):
             "<a href='{verify_url}/{verify_path}/{verify_uuid}'>" \
             "{verify_url}/{verify_path}/{verify_uuid}</a>"
 
+        if 'SEXED101' in self.course:
+            paragraph_string = "Автентичність цього сертифікату може бути перевірена за ".decode('utf-8').upper()
+            paragraph_string += "<a href='{verify_url}/{verify_path}/{verify_uuid}'>" \
+            "{verify_url}/{verify_path}/{verify_uuid}</a>"
+
         paragraph_string = paragraph_string.format(
             verify_url=settings.CERT_VERIFY_URL,
             verify_path=S3_VERIFY_PATH,
@@ -1078,6 +1155,14 @@ class CertificateGen(object):
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)
             paragraph.drawOn(c, 0 * mm, 10 * mm)
+        elif 'SEXED101' in self.course:
+            styleEngine.textColor = colors.Color(0.475, 0.639, 0.733)
+            styleEngine.fontSize = 10
+            styleEngine.leading = 11
+            styleEngine.alignment = TA_LEFT
+            paragraph = Paragraph(paragraph_string, styleEngine)
+            paragraph.wrapOn(c, 200 * mm, 214 * mm)
+            paragraph.drawOn(c, (LEFT_INDENT - 26) * mm, 4 * mm)
         else:
             paragraph = Paragraph(paragraph_string, styleOpenSansLight)
             paragraph.wrapOn(c, WIDTH * mm, HEIGHT * mm)

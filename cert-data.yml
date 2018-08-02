@@ -420,6 +420,40 @@ LITS/111/2017_T1:
   TEACHER_AT_FIRST_LINE: 1
   VERSION: Prometheus
 
+course-v1:LITS+112+2017_T2:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
+  VERSION: Prometheus
+
+course-v1:LITS+113+2017_T2:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus
+
+course-v1:LITS+114+2017_T4:
+  LONG_COURSE: 'Основи Web UI розробки'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачкою'
+  TEACHER: 'Світланою Шабаранською'
+  VERSION: Prometheus
+
+course-v1:LITS+115+2017_T4:
+  LONG_COURSE: 'Основи тестування програмного забезпечення'
+  LONG_ORG: 'Lviv IT School'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'викладачами'
+  TEACHER: 'Юрієм Кутельмахом</b> та <b>Денисом Сороханом'
+  TEACHER_AT_FIRST_LINE: 1
+  VERSION: Prometheus
+
 course-v1:ProZorro+PP202+2017_T1:
   LONG_COURSE: 'Публічні закупівлі для бізнесу'
   LONG_ORG: 'Prometheus'
@@ -464,3 +498,226 @@ OSCE/DIAL101/2017_T1:
   TEACHER_TITLE: '<b>Координатором проектів ОБСЄ в Україні</b>'
   VERSION: Prometheus
 
+IRF/ML101/2016_T3:
+  LONG_COURSE: 'Машинне навчання'
+  LONG_ORG: ' '
+  ORG: 'irf'
+  TEACHER_TITLE: ' '
+  TEACHER: 'Олесем Петрівим</b>, <b>Антоном Чернятевичем</b>, <b>Олександрою Шкоріновою'
+  TEACHER_AT_FIRST_LINE: 1
+#  TEACHER_SEPARATE_LINE: 1
+  VERSION: Prometheus
+
+course-v1:AUC+CDP101+2017_T1:
+  LONG_COURSE: 'Підготовка та впровадження проектів розвитку громад'
+  LONG_ORG: ' '
+  ORG: 'auc'
+  TEACHER_TITLE: '<b>Асоціацією міст України</b>'
+  VERSION: Prometheus
+
+course-v1:AMU+BP_101+2017_T1:
+  LONG_COURSE: 'Ефективний бюджетний процес в органах місцевого самоврядування'
+  LONG_ORG: ' '
+  ORG: 'amu'
+  TEACHER_TITLE: '<b>Асоціацією міст України</b>'
+  VERSION: Prometheus
+
+course-v1:IRF+PM101+2017_T1:
+  LONG_COURSE: 'Сучасне керівництво проектами - \nмистецтво порушення правил'
+  LONG_ORG: ' '
+  ORG: 'irf'
+  TEACHER_TITLE: '<b>Сергієм Гвоздьовим</b>'
+  VERSION: Prometheus
+
+NMU/Cardiology101/2017_T1:
+  LONG_COURSE: 'Вступ до кардіології. \nПатофізіологія серцево-судинної системи'
+  LONG_ORG: ' '
+  ORG: 'nmu'
+  TEACHER_TITLE: 'викладачем Національного медичного університету ім. О.О. Богомольця'
+  TEACHER: 'Заярною Ларисою Павлівною</b> та студентською платформою KIVI<b>'
+  TEACHER_AT_FIRST_LINE: 0
+  TEACHER_SEPARATE_LINE: 1
+  VERSION: Prometheus
+
+course-v1:IFNMU+dep+2017_T1:
+  LONG_COURSE: 'Шлях лікаря: \nІвано-Франківський національний медичний університет'
+  LONG_ORG: ' '
+  ORG: 'ifnmu'
+  TEACHER_TITLE: 'викладачами Івано-Франківського національного медичного університету'
+  VERSION: Prometheus
+
+course-v1:WNISEF+SE101+2017_T2:
+  LONG_COURSE: 'Соціальне підприємництво'
+  LONG_ORG: ' '
+  ORG: 'wnisef'
+  TEACHER: 'Артемом Корнецьким'
+  VERSION: Prometheus
+
+course-v1:WNISEF+SE101+2017_T4:
+  LONG_COURSE: 'Соціальне підприємництво'
+  LONG_ORG: ' '
+  ORG: 'wnisef'
+  TEACHER: 'Артемом Корнецьким'
+  VERSION: Prometheus
+
+course-v1:NETWORK+SW101+2017_T2:
+  LONG_COURSE: 'Соціальна робота з людьми, \nякі мають хронічні захворювання'
+  LONG_ORG: ' '
+  ORG: 'neywork'
+  TEACHER_TITLE: '<b>Благодійною Організацією "Мережа"</b>'
+  VERSION: Prometheus
+
+course-v1:MOZ+TOD101+2017_T2:
+  LONG_COURSE: 'Лікування опіоїдної залежності'
+  LONG_ORG: ' '
+  ORG: 'moz'
+  TEACHER_TITLE: "фахівцями Державної установи «Центр громадського здоров'я Міністерства охорони здоров'я"
+  TEACHER: "</b>України» та Благодійної організації «Український інститут політики громадського здоров'я»<b>"
+  TEACHER_AT_FIRST_LINE: 0
+  TEACHER_SEPARATE_LINE: 1
+  VERSION: Prometheus
+
+Microsoft/CS201/2016_T1:
+  LONG_COURSE: 'Основи програмування на C#'
+  LONG_ORG: ' '
+  ORG: 'microsoft'
+  TEACHER_TITLE: "<b>Відділом стратегічних технологій Майкрософт Україна</b>"
+  VERSION: Prometheus
+
+course-v1:KPI+Scratch101+2017_T1:
+  LONG_COURSE: 'Алгоритми і проекти Scratch'
+  LONG_ORG: ' '
+  ORG: 'kpi'
+  TEACHER_TITLE: ' '
+  VERSION: Prometheus
+
+course-v1:Prometheus+DC101+2017_T4:
+  LONG_COURSE: 'Децентралізація в Україні – теорія та практика'
+  LONG_ORG: ' '
+  ORG: 'prometheus'
+  TEACHER_TITLE: ' '
+  VERSION: Prometheus
+
+course-v1:AMU+INST101+2017_T4:
+  LONG_COURSE: 'Створення інституцій місцевого економічного розвитку громад'
+  LONG_ORG: ' '
+  ORG: 'amu'
+  TEACHER_TITLE: ' '
+  VERSION: Prometheus
+
+course-v1:COE+MEDIA101+2017_T3:
+  LONG_COURSE: 'Від комунальних до незалежних медіа: \nпокрокова інструкція для редакторів'
+  LONG_ORG: ' '
+  ORG: 'coe'
+  TEACHER_TITLE: '<b>Офісом Ради Європи в Україні</b>'
+  VERSION: Prometheus
+
+course-v1:CZ+CTFT101+2017_T3:
+  LONG_COURSE: 'Критичне мислення для освітян\n(30 годин)'
+  LONG_ORG: ' '
+  ORG: 'cz'
+  TEACHER_TITLE: '<b>Сергієм Терно, Наталією Степановою та Сергієм Горбачовим</b>'
+  VERSION: 'Prometheus'
+
+course-v1:Prometheus+DTI101+2017_T3:
+  LONG_COURSE: 'Дизайн-мислення для інновацій'
+  LONG_ORG: ' '
+  ORG: 'prometheus'
+  TEACHER_TITLE: ' '
+  VERSION: Prometheus
+
+course-v1:NAZK+COI101+2017_T3:
+  LONG_COURSE: 'Конфлікт інтересів: треба знати!'
+  LONG_ORG: ' '
+  ORG: 'nazk'
+  TEACHER_TITLE: '<b>Іриною Мостовою та Ігорем Степановим</b>'
+  VERSION: Prometheus
+
+course-v1:COE+PIPA101+2017_T3:
+  LONG_COURSE: 'Доступ до публічної інформації для громадських активістів'
+  LONG_ORG: ' '
+  ORG: 'coe'
+  TEACHER_TITLE: '<b>Офісом Ради Європи в Україні</b>'
+  VERSION: Prometheus
+
+course-v1:COE+PIM101+2017_T3:
+  LONG_COURSE: 'Доступ до публічної інформації для розпорядників'
+  LONG_ORG: ' '
+  ORG: 'coe'
+  TEACHER_TITLE: '<b>Офісом Ради Європи в Україні</b>'
+  VERSION: Prometheus
+
+
+course-v1:IRF+SOCMANAGE101+2018_T2:
+  LONG_COURSE: 'Соціальний менеджмент і залучення зацікавлених сторін'
+  LONG_ORG: ' '
+  ORG: 'irf'
+  TEACHER_TITLE: "в межах проекту «Експертна підтримка Надзвичайної кредитної програми<br/>Європейського інвестиційного банку для відновлення України:<br/>розробка планів соціального менеджменту і залучення зацікавлених сторін»,<br/>що впроваджується Міжнародним фондом «Відродження» за фінансової підтримки Європейського Союзу,"
+  VERSION: Prometheus
+
+
+course-v1:EPF+SEXED101+2018_T2:
+  LONG_COURSE: 'Сексуальна освіта'
+  LONG_ORG: ' '
+  ORG: 'epf'
+  TEACHER_TITLE: ' '
+  VERSION: Prometheus
+
+course-v1:DNU+PRIN-101+2017_T1:
+  LONG_COURSE: 'Word та Excel: інструменти і лайфхаки (36 годин)'
+  LONG_ORG: ' '
+  ORG: 'dnu'
+  TEACHER: 'Вікторією Дмитрієвою'
+  VERSION: Prometheus
+
+course-v1:NGU+MANAGEMENT101+2018_T1:
+  LONG_COURSE: 'Менеджмент'
+  LONG_ORG: ' '
+  ORG: 'ngu'
+  TEACHER_TITLE: '<b>Бардасем Артемом Володимировичем</b>'
+  VERSION: Prometheus
+
+course-v1:IRF+CSHW101+2018_T1:
+  LONG_COURSE: '«Дослідження корупції: Як це працює?»'
+  LONG_ORG: ' '
+  ORG: 'ngu'
+  TEACHER_TITLE: 'авторами курсу'
+  VERSION: Prometheus
+
+course-v1:AC+SMS101+2018_T2:
+  LONG_COURSE: 'СМС – Система Менеджменту Ситуацій'
+  LONG_ORG: ' '
+  ORG: 'ac'
+  TEACHER_TITLE: 'викладачем курсу'
+  TEACHER: 'Юлією Плієвою'
+  VERSION: Prometheus
+
+course-v1:Prometheus+ADMISSION101+2018_T2:
+  LONG_COURSE: 'Як вступити до найкращих західних шкіл та університетів'
+  ORG: 'prometheus'
+  TEACHER_TITLE: 'за підтримки компанії'
+  LONG_ORG: 'Київстар'
+  TEACHER: '</b>викладачами курсу <b>Юлією Сичіковою</b> та <b>Михайлом Лемешем</b><br/><b>'
+  VERSION: Prometheus
+
+course-v1:ArtArsenal+LIT101+2018_T1:
+  LONG_COURSE: 'Осмислені й переосмислені (0,5 кредита)'
+  LONG_ORG: ' '
+  ORG: 'artarsenal'
+  TEACHER_TITLE: 'ДП «Національний культурно-мистецький та музейний комплекс «Мистецький арсенал»»'
+  TEACHER: '</b>та Інститутом післядипломної педагогічної освіти Київського університету імені Бориса Грінченка<b><br/>'
+  VERSION: Prometheus
+
+course-v1:OSCE+NATIVEADS101+2018_T3:
+  LONG_COURSE: 'Нативна реклама'
+  ORG: 'osce'
+  TEACHER_TITLE: 'викладачами курсу <b>Миколою Балабаном</b> та <b>Дмитром Тужанським</b>'
+  LONG_ORG: ' '
+  VERSION: Prometheus
+
+course-v1:OSCE+SALES101+2018_T3:
+  LONG_COURSE: 'Експрес-курс підготовки менеджера з продажу реклами\nв локальному медіа «з нуля»'
+  ORG: 'osce'
+  TEACHER_TITLE: 'викладачем курсу <b>Борисом Родієвським</b>'
+  LONG_ORG: ' '
+  VERSION: Prometheus
